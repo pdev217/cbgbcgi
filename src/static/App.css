@@ -1,0 +1,2026 @@
+body {
+    /* width: 100vw; */
+    background-image: url("../assets/image 10.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.cheappine{
+    font-family: "CheapPineRegular";
+}
+.App {
+    width: 100%;
+    overflow: hidden;
+}
+.intro {
+
+    text-align: center;
+}
+
+.thumbnail:hover {
+  transform: scale(2);
+  transform-origin: center;
+  z-index: 2;
+}
+
+.mint-intro {
+
+    text-align: center;
+    min-height: 100vh;
+}
+ .entry-title {
+    display: flex;
+    font-family: "Chelsea Market";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 36px;
+    justify-content: center;
+    text-align: center;
+    color: #ffc300;
+}
+
+.ticket-group {
+    align-items: center;
+}
+
+ .count {
+    /*background: url("../assets/Rectangle 2.png");*/
+    background-size: cover;
+    text-align: center;
+    /* width: 125px;
+    height: 150px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'CBGBFont';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 83px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #75716c;
+}
+
+.first-paragraph {
+    font-family: "CBGBFont";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 40px;
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #ffffff;
+    margin: auto;
+    margin-bottom: 22px;
+    max-width: 507px;
+    -webkit-text-stroke: 1px #c000ff;
+}
+.first-paragraph span {
+    font-size: 56px;
+}
+.second-paragraph {
+    font-family: "Chelsea Market";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 36px;
+    text-align: center;
+    color: white;
+    margin: auto;
+    margin-bottom: 37px;
+    max-width: 482px;
+}
+.third-paragraph {
+    font-family: "Chelsea Market";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 36px;
+    /* identical to box height, or 100% */
+
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #ffffff;
+    margin-bottom: 50px;
+}
+#video1 {
+    width: 95%    !important;
+    margin: auto;
+    display: none;
+    box-shadow: 0px 0px 70px 0px #ad7b16;
+    margin-bottom: 30px;
+}
+/*
+#video1::before {
+  content: "";
+  background: linear-gradient(90deg, #c58b0f, purple, black);
+  position: absolute;
+  max-width: 300%;
+  width: 1400px;
+  z-index: -1;
+  filter: blur(20px);
+}*/
+
+ .zoomIn {
+    animation-name: zoomIn;
+    animation-duration: 1s;
+    transition: all 1s;
+}
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+} 
+
+.fadeInLeft{
+    animation-name: fdInLeft;
+    animation-duration: 1s;
+    transition: all 1s;
+}
+
+@keyframes fdInLeft {
+    0% {
+       opacity: 0;
+       transform: translateX(-85px);
+    }
+    100% {
+       opacity: 1;
+       transform: translateX(0);
+    }
+ }   
+
+ 
+.delay0-5 { animation-delay: 0.5s; }
+.delay1 { animation-delay: 1s; }
+.button {
+    height: 45px;
+    background: #a537ff;
+    border-radius: 7px;
+    font-family: "Acier";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #ffffff;
+    display: inline-block;
+    text-decoration: none;
+    padding: 13px 12px;
+
+}
+.button.discord { background: #5865f2; }
+.about {
+    text-align: center;
+    padding: 55px 0;
+    background-size: cover;
+}
+/*.about .headline {
+    background: url("../assets/Layer 590 1.png") center center/auto 80% no-repeat !important;
+    background-position: center center;
+    background-repeat: no-repeat;
+    font-family: "CBGBFont";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 62px;
+    /*line-height: 83px;
+    /* identical to box height, or 134%
+
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #a537ff;
+    height: 122px;
+    margin-bottom: 50px;
+}*/
+.about p span {
+    font-family: "CheapPineRegular";
+    font-style: normal;
+    /* font-size: 36px; */
+    line-height: 22px;
+    text-align: center;
+    color: #fcff6f;
+    max-width: 847px;
+    margin: auto;
+    font-size: 37px;
+}
+
+.about p {
+    font-family: "Chelsea Market";
+    font-style: normal;
+    font-weight: 400;
+    line-height: 36px;
+    text-align: center;
+    color: #fff;
+    max-width: 963px;
+    margin: auto;
+    margin-bottom: 40px;
+    font-size: 22px;
+}
+
+.about-first {
+    font-size: 30px;
+    line-height: 34px;
+}
+
+.about p.green {
+    max-width: 910px;
+    font-size: 26px;
+}
+.about p.green span {
+    color: #236426;
+}
+
+.about .headline2 {
+    background: url("../assets/Layer 615 1.png") center center/auto 80% no-repeat !important;
+    font-family: "CBGBFont";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 128px;
+    line-height: 83px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fd1900;
+    height: 171px;
+}
+.and {
+    font-family: "Chelsea Market";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 34px;
+    line-height: 30px;
+    /* identical to box height, or 88% */
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 70px;
+    display: block;
+}
+.country-computer {
+    display: flex;
+    font-family: "Acier";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 27px;
+    line-height: 28px;
+    text-transform: uppercase;
+    justify-content: space-evenly;
+    color: #ffffff;
+    max-width: 1300px;
+    margin: 0 auto 30px;
+}
+.imagine {
+    font-family: "Acier";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 23px;
+    line-height: 25px;
+    text-transform: uppercase;
+    color: white;
+    /* max-width: 700px; */
+    margin: auto;
+}
+.ways .headline {
+    background: url("../assets/Layer 578 1.png") center center/auto 80% no-repeat !important;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: auto 50%;
+    font-family: "Chelsea Market";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 38px;
+    line-height: 44px;
+    /* or 116% */
+
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #ffffff;
+    height: 198px;
+}
+
+#examples .headline {
+    /*background: url("../assets/example21.png") center center/auto 80% no-repeat !important;*/
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: auto 50%;
+    font-family: "Chelsea Market";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 38px;
+    line-height: 44px;
+    /* or 116% */
+
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #ffffff;
+    height: 198px;
+}
+.ways .headline span {
+    font-size: 54px;
+    color: #ffeb3b;
+}
+.example-title {
+    max-width: 90%;
+}
+.example-subtitle {
+    font-family: "Acier";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 34px;
+    /* identical to box height, or 136% */
+
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #ffffff;
+}
+.example-image img {
+    box-shadow: 0px 0px 10px 0px #f7f917;
+    max-width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.name {
+    font-family: "Chelsea Market";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+    color: #ffffff;
+    margin-top: 7px;
+}
+.role {
+    font-family: "Chelsea Market";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 21px;
+    text-align: center;
+    color: #ffc300;
+    margin-bottom: 15px;
+}
+.inlinemint {
+    margin-bottom: 30px;
+}
+.small-hd {
+    max-width: 644px;
+    font-family: "Chelsea Market";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 34px;
+    /* or 142% */
+
+    text-align: center;
+
+    color: #ffffff;
+    margin: auto;
+}
+.text-white span {
+    color: #ffc300;
+}
+.text-white .thousand {
+     font-family: "CheapPineRegular";
+     font-size: 32px;
+}
+.purple {
+
+    text-align: center;
+    padding: 50px 0;
+}
+.purple .headline {
+    background: url("../assets/Group 175.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    font-family: "CBGBFont";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 54px;
+    line-height: 71px;
+    /* or 131% */
+
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #ffffff;
+    height: 164px;
+}
+.super {
+    justify-content: center;
+    align-items: baseline;
+}
+.super .title img {
+    width: initial;
+    max-width: 100%;
+    margin-bottom: 35px;
+}
+.super .title {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 33px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-shadow: 3px 3px 2px #ff0000;
+    max-width: 320px;
+    margin: auto;
+}
+
+.first-image{
+    max-width: 1470px;
+    margin: auto;
+}
+.super p {
+    font-family: "Chelsea Market";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    text-align: center;
+    color: #fff;
+    max-width: 572px;
+}
+.super p span {
+    font-family: "Chelsea Market";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 16px;
+    /* or 142% */
+
+    text-align: center;
+
+    color: #f3ce13;
+}
+
+.cbgbfont{
+    font-family: "CBGBFont" !important;
+}
+
+.super.duper p {
+    font-family: "Chelsea Market";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 34px;
+    text-align: center;
+    color: #f3ce13;
+    max-width: 644px;
+}
+.super.duper p span {
+    font-family: "Chelsea Market";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 34px;
+    /* or 142% */
+
+    text-align: center;
+
+    color: #fff;
+}
+.super.duper p span.two-hundreds {
+    font-family: "CBGBFont";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 34px;
+    line-height: 34px;
+    /* or 142% */
+
+    text-align: center;
+
+    color: #fff;
+}
+.super button {
+    background: #de0d00;
+    border-radius: 7px;
+    height: 45px;
+    padding: 0 21px;
+    font-family: "Acier";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #ffffff;
+    border: 0;
+}
+.apear {
+    font-family: "Chelsea Market";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 34px;
+    /* identical to box height, or 142% */
+
+    text-align: center;
+
+    color: #f3ce13;
+}
+.apear span {
+    font-family: "CheapPineRegular";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 43px;
+    line-height: 34px;
+    /* or 142% */
+
+    text-align: center;
+
+    color: #fff;
+}
+.super-fucking {
+
+    text-align: center;
+    padding: 50px 10px;
+}
+
+.super-fucking .col-lg-4 img{
+    margin-bottom: 10px;
+    max-width: 323px;
+    box-shadow: 0px 0px 10px 2px #4217f9;
+}
+
+.super-fucking .col-md-4 img{
+    margin-bottom: 10px;
+    max-width: 323px;
+    box-shadow: 0px 0px 10px 2px #4217f9;
+}
+
+.super-fucking .super {
+    max-width: 1060px;
+    margin: auto;
+    align-items: flex-end;
+}
+/* .super-fucking .super .title {
+    max-width: 529px;
+    margin: auto;
+} */
+.super-fucking .super p {
+    max-width: 610px;
+    color: #f3ce13;
+}
+.super-fucking .super p span {
+    font-size: 24px;
+    color: #fff;
+    font-family: "Chelsea Market";
+}
+.super-fucking .super p span.twenty-one {
+    font-family: "CBGBFont";
+}
+.animated-title {
+    font-family: "CBGBFont";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 112px;
+    line-height: 62px;
+    /* identical to box height, or 55% */
+
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #a537ff;
+}
+.click {
+    font-family: "Acier";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 28px;
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #ffffff;
+}
+.animated-headline {
+    font-family: "Chelsea Market";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+    /* identical to box height, or 133% */
+
+    text-align: center;
+
+    color: #ffc300;
+}
+.animated-text {
+    font-family: "Fahkwang";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 32px;
+    /* identical to box height, or 178% */
+
+    text-align: center;
+
+    color: #ffffff;
+}
+.our-manifesto {
+
+    text-align: center;
+    padding: 50px 10px;
+}
+
+.our-manifesto .headline {
+    background: url("../assets/our-manifesto.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    max-width: 90%;
+    font-family: "CBGBFont";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 76px;
+    line-height: 62px;
+    /* identical to box height, or 82% */
+
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #de0d00;
+    height: 112px;
+}
+.our-manifesto .subheadline {
+    font-family: "Acier";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 28px;
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #ffffff;
+    margin-bottom: 50px;
+}
+.our-manifesto p {
+    font-family: "Chelsea Market";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 40px;
+    text-align: justify;
+    color: white;
+    margin: auto;
+}
+.roadmap {
+
+    text-align: left;
+    padding: 50px 0 0;
+}
+.shadow{
+    box-shadow: 0px 0px 10px 2px #eeff37;
+}
+.roadmap .headline {
+    /*background: url("../assets/Layer 583 1.png");*/
+    background-position: center center;
+    background-repeat: no-repeat;
+    font-family: "CBGBFont";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 76px;
+    line-height: 62px;
+    /* identical to box height, or 82% */
+
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #ffc300;
+    height: 121px;
+}
+
+.roadmap .sub-headline {
+    font-family: "Acier";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 28px;
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #ffffff;
+}
+.first-sec {
+    text-align: left;
+    position: relative;
+    margin-bottom: 40px;
+    margin-top: 50px;
+}
+.mt-up-img{ margin-top: -27%; }
+/*.first-sec::after {
+    content: "";
+    background: url(../assets/red-arrow.png);
+    position: absolute;
+    width: 251px;
+    height: 182px;
+    left: 370px;
+    top: 0;
+}*/
+.arrow-offset {
+    margin-top: 20%;
+}
+.second-sec {
+    position: relative;
+    margin-bottom: 21px;
+}
+
+.second-sec .m-right {
+    max-width: 512px;
+    text-align: left;
+    margin-top: 33% !important;
+}
+.after-sec {  position: relative; }
+/*
+.after-sec::after {
+    content: "";
+    background: url(../assets/2nd.png);
+    position: absolute;
+    width: 314px;
+    height: 253px;
+    left: 556px;
+    top: -190%;
+}*/
+
+.third-sec {
+    text-align: left;
+    position: relative;
+    margin-bottom: 171px;
+}
+
+.third-sec .order-1 {
+    max-width: 426px;
+}
+
+/*
+.third-sec::after {
+    content: "";
+    background: url(../assets/3rd.png);
+    position: absolute;
+    width: 226px;
+    height: 225px;
+    left: 427px;
+    top: 56%;
+}
+*/
+.forth-sec {
+    text-align: left;
+    position: relative;
+    margin-bottom: 171px;
+}
+
+.forth-sec .m-right {
+    max-width: 476px;
+}
+.forth-sec::after {
+    content: "";
+    /*background: url(../assets/4th.png);*/
+    position: absolute;
+    width: 256px;
+    height: 196px;
+    left: 442px;
+    top: 80%;
+}
+.fifth-sec {
+    text-align: left;
+    position: relative;
+    margin-bottom: 171px;
+}
+/*.fifth-sec::after {
+    content: "";
+    background: url(../assets/5th.png);
+    position: absolute;
+    width: 244px;
+    height: 209px;
+    left: 412px;
+    top: 50%;
+}*/
+.sixth-sec {
+    text-align: left;
+    position: relative;
+    margin-bottom: 21px;
+}
+
+.sixth-sec .m-right {
+    margin-right: 250px;
+}
+/*
+.sixth-sec::after {
+    content: "";
+    background: url(../assets/6th.png);
+    position: absolute;
+    width: 259px;
+    height: 195px;
+    left: 479px;
+    top: 70%;
+}*/
+.seventh-sec {
+    text-align: left;
+    position: relative;
+    margin-bottom: 171px;
+}
+.seventh-sec .order-1 {
+    max-width: 476px;
+}
+/*
+.seventh-sec::after {
+    content: "";
+    background: url(../assets/7th.png);
+    position: absolute;
+    width: 245px;
+    height: 215px;
+    left: 315px;
+    top: 60%;
+}*/
+.eighth-sec {
+    text-align: left;
+    position: relative;
+    margin-bottom: 171px;
+}
+.eighth-sec .m-right {
+    margin-right: 250px;
+}
+/*
+.eighth-sec::after {
+    content: "";
+    background: url(../assets/8th.png);
+    position: absolute;
+    width: 254px;
+    height: 198px;
+    left: 489px;
+    top: 70%;
+}*/
+.ninth-sec {
+    text-align: left;
+}
+.roadmap-title {
+    font-family: "CBGBFont";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 29px;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+.roadmap-text {
+    font-family: "Avenir LT Std";
+    font-style: normal;
+    font-weight: 350;
+    font-size: 19px;
+    line-height: 25px;
+    color: #ffc300;
+}
+
+.roadmap .container{
+    max-width: 1147px;
+}
+.second-sec {
+    display: flex;
+}
+.behind {
+
+    text-align: center;
+    padding: 50px 10px;
+}
+
+.behind .headline {
+    /*background: url("../assets/Layer 633 1.png");*/
+    background-position: center center;
+    background-repeat: no-repeat;
+    font-family: "CBGBFont";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 76px;
+    line-height: 62px;
+    /* identical to box height, or 82% */
+
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #ffc300;
+    height: 121px;
+}
+
+.behind .sub-headline {
+    font-family: "Chelsea Market";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 34px;
+    /* or 142% */
+
+    text-align: center;
+
+    color: #ffc300;
+    max-width: 920px;
+    margin: auto;
+}
+.behind .sub-headline span {
+    font-style: normal;
+    font-weight: 400;
+    line-height: 34px;
+    /* or 142% */
+
+    text-align: center;
+
+    color: #fff;
+}
+.behind-headline {
+    font-family: "CBGBFont";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 34px;
+    text-align: center;
+    color: #ff00b4;
+    margin-bottom: 8px;
+}
+.behind-text {
+    font-family: "Chelsea Market";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    text-align: center;
+    color: #ffffff;
+    margin: auto;
+}
+.imdb {
+    width: 115px;
+    height: 35px;
+    display: inline-block;
+
+    background: #f3ce13;
+    border-radius: 7px;
+}
+
+.imdb img {
+    max-width: 100%;
+    max-height: 100%;
+}
+.behind-bottom-text {
+    font-family: "Chelsea Market";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 32px;
+    /* or 152% */
+
+    text-align: center;
+
+    color: #ffc300;
+    max-width: 980px;
+    margin: auto;
+}
+.amazon {
+    width: 289px;
+    height: 42px;
+    background: #ffc300;
+    border-radius: 7px;
+    display: inline-block;
+    font-family: "Avenir LT Std";
+    font-style: normal;
+    font-weight: 750;
+    font-size: 15px;
+    line-height: 16px;
+    /* identical to box height */
+    padding-top: 5px;
+    text-align: center;
+
+    color: #16151a;
+    text-decoration: none;
+    cursor: pointer;
+}
+.amazon img {
+    margin-left: 5px;
+}
+
+.keep {
+
+    text-align: center;
+    padding: 50px 10px;
+}
+
+.keep .headline {
+    /*background: url("../assets/Layer 581 1.png");*/
+    background-position: center center;
+    background-repeat: no-repeat;
+    font-family: "CBGBFont";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 76px;
+    line-height: 62px;
+    /* identical to box height, or 82% */
+
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #ffffff;
+    height: 121px;
+}
+.keep .sub-headline {
+    font-family: "Acier";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 25px;
+    /* identical to box height */
+
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #236426;
+    padding-top: 20px;
+}
+
+.keep-headline {
+    font-family: "CBGBFont";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 34px;
+    /* identical to box height, or 142% */
+
+    text-align: center;
+
+    color: #ff00b4;
+}
+.keep .text {
+    font-family: "Chelsea Market";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 34px;
+    /* or 142% */
+
+    text-align: center;
+
+    color: white;
+    max-width: 1110px;
+    margin: auto;
+}
+.keep .text span {
+    font-family: "CheapPineRegular";
+    font-style: normal;
+    font-size: 42px;
+    line-height: 34px;
+    /* or 142% */
+    text-align: center;
+    color: #fff;
+    display: inline-block;
+}
+.keep .discord {
+    width: 150px;
+    height: 55px;
+    background: #5865f2;
+    border-radius: 7px;
+    display: inline-block;
+    font-family: "Acier";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #ffffff;
+    padding-top: 20px;
+}
+.faq {
+
+    text-align: center;
+    padding: 50px 10px;
+    background-size: cover;
+}
+
+.faq .headline {
+    background: url("../assets/Layer 582 1.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    font-family: "CBGBFont";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 76px;
+    line-height: 62px;
+    /* identical to box height, or 82% */
+
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #ffc300;
+    height: 121px;
+}
+
+.accordion-wrapper + * {
+    margin-top: 0.5em;
+}
+
+.accordion-item {
+    font-family: "Chelsea Market";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 30px;
+    /* or 143% */
+    border: 0 !important;
+    color: #ffc300;
+    padding: 15px;
+    text-align: left;
+    overflow: hidden;
+    transition: max-height 0.3s cubic-bezier(1, 0, 1, 0);
+    height: auto;
+    max-height: 9999px;
+    background-color: initial !important;
+}
+.accordion-item a{
+    color: #ffc300;
+}
+.accordion-item.collapsed {
+    max-height: 0;
+    transition: max-height 0.35s cubic-bezier(0, 1, 0, 1);
+}
+
+.accordion-title {
+    background: #a537ff;
+    border: 4px solid #ffc300;
+    box-sizing: border-box;
+    border-radius: 7px;
+    font-family: "Acier";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+    /* identical to box height, or 133% */
+    cursor: pointer;
+    color: #ffc300;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 45px 15px 15px;
+    position: relative;
+    text-align: left;
+}
+.accordion-title::after {
+    content: "";
+    background: url(../assets/close.png);
+    width: 23px;
+    height: 22px;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}
+.accordion-title.open::after {
+    content: "";
+    background: url(../assets/open.png);
+    width: 23px;
+    height: 22px;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}
+
+.accordion-title :hover,
+.accordion-title .open {
+    color: black;
+}
+
+.accordion-title .open ::after {
+    content: "";
+    border-top: 0;
+    border-bottom: 5px solid;
+}
+.accordion-content {
+    padding: 1em 1.5em;
+}
+.first {
+    font-family: "Acier";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 26px;
+    /* identical to box height, or 124% */
+
+    text-align: center;
+
+    color: #ffffff;
+    margin-bottom: 50px;
+}
+.copyright {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #ffffff;
+}
+.first-lady {
+    font-family: "CBGBFont";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+    /* or 150% */
+
+    text-align: center;
+
+    color: #fcff6f;
+}
+
+.mint {
+    height: 50px;
+    display: inline-flex;
+    width: 100%;
+    background: #fd1900;
+    border-radius: 7px;
+    font-family: "Acier";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 12px;
+    text-align: center;
+    padding: 0px 10px;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin: 0px 0;
+    margin-bottom: 30px;
+    align-items: center;
+    justify-content: center;
+    border: 0px;
+    box-shadow: 1px 1px 10px #000;
+}
+.pagination {
+    font-family: "Acier";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 28px;
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #ffc300;
+    float: right;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+li {
+    padding: 10px;
+    color: #ffc300;
+    display: inline-block;
+    font-family: "Acier";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 28px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #ffc300;
+}
+li.selected {
+    text-decoration-line: underline;
+}
+li.next a {
+    color: rgba(0, 0, 0, 0);
+    text-decoration: none;
+    background: url("../assets/Vector (1).png");
+    background-repeat: no-repeat;
+    width: 20px;
+    display: inline-block;
+    background-position: center center;
+}
+li.previous a {
+    color: rgba(0, 0, 0, 0);
+    text-decoration: none;
+    background: url("../assets/Vector.png");
+    background-repeat: no-repeat;
+    width: 20px;
+    display: inline-block;
+    background-position: center center;
+}
+.category-title {
+    /* font-family: "CBGBFont"; */
+    font-family: "Chelsea Market";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 76px;
+    line-height: 62px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-shadow: 3px 3px 2px #ffb200;
+}
+.overlay {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.4);
+
+    width: 100%;
+    height: 100%;
+    left: 0%;
+    top: 0%;
+}
+.lds-roller {
+    display: inline-block;
+    position: fixed;
+    width: 80px;
+    height: 80px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+.lds-roller div {
+    animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    transform-origin: 40px 40px;
+}
+.lds-roller div:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #fff;
+    margin: -4px 0 0 -4px;
+}
+.lds-roller div:nth-child(1) {
+    animation-delay: -0.036s;
+}
+.lds-roller div:nth-child(1):after {
+    top: 63px;
+    left: 63px;
+}
+.lds-roller div:nth-child(2) {
+    animation-delay: -0.072s;
+}
+.lds-roller div:nth-child(2):after {
+    top: 68px;
+    left: 56px;
+}
+.lds-roller div:nth-child(3) {
+    animation-delay: -0.108s;
+}
+.lds-roller div:nth-child(3):after {
+    top: 71px;
+    left: 48px;
+}
+.lds-roller div:nth-child(4) {
+    animation-delay: -0.144s;
+}
+.lds-roller div:nth-child(4):after {
+    top: 72px;
+    left: 40px;
+}
+.lds-roller div:nth-child(5) {
+    animation-delay: -0.18s;
+}
+.lds-roller div:nth-child(5):after {
+    top: 71px;
+    left: 32px;
+}
+.lds-roller div:nth-child(6) {
+    animation-delay: -0.216s;
+}
+.lds-roller div:nth-child(6):after {
+    top: 68px;
+    left: 24px;
+}
+.lds-roller div:nth-child(7) {
+    animation-delay: -0.252s;
+}
+.lds-roller div:nth-child(7):after {
+    top: 63px;
+    left: 17px;
+}
+.lds-roller div:nth-child(8) {
+    animation-delay: -0.288s;
+}
+.lds-roller div:nth-child(8):after {
+    top: 56px;
+    left: 12px;
+}
+@keyframes lds-roller {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.mint-img {
+    background:rgba(22, 21, 26, 0.57);
+}
+.counter {
+    margin: 0 -5px;
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .entry {
+    text-align: center;
+    z-index: 1;
+    margin-left: 0%;
+  }
+
+  .entry-value {
+    position: relative;
+    perspective: 200px;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transform: translate3d(0, 0, 0);
+    margin: 0 auto;
+    /*background: url("../assets/Rectangle 2.png");*/
+    background-size: cover;
+    text-align: center;
+    /* width: 125px; */
+    height: 13vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    /* font-family: "CBGBFont";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 52px;
+    line-height: 83px; */
+    text-align: center;
+    text-transform: uppercase;
+    color: #ffffff;
+    bottom: 8px;
+
+  }
+
+  .alert-danger {
+      color: #721c24;
+      background-color: #f8d7da;
+      border-color: #f5c6cb;
+      position: relative;
+      padding: .75rem 1.25rem;
+      margin-bottom: 1rem;
+      border: 1px solid transparent;
+      border-radius: .25rem;
+    text-align: center;
+  }
+
+
+#test{
+    width: 225px;
+}
+.handcraft span{
+    font-family: 'CBGBFont';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 38px;
+    line-height: 36px;
+    /* identical to box height, or 95% */
+
+    text-align: center;
+
+    color: #FFC300;
+}
+.handcraft{
+    font-family: 'Chelsea Market';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 34px;
+    line-height: 36px;
+    /* identical to box height, or 95% */
+
+    text-align: center;
+
+    color: #fff;
+}
+@media screen and (min-width: 768px){
+    .roadmap-text {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .entry {
+        margin-left: 0%;
+    }
+    .about-second {
+        font-size: 12px;
+        line-height: 16px;
+    }
+    .second-cbgb {
+        font-size: 16px !important;
+        line-height: 16px !important;
+    }
+    .sfdm-button {
+        padding-top: 10px;
+    }
+    .headline, .headline2{
+        width: 100%;
+        background-size: contain !important;
+    }
+    .roadmap{
+        background-size: cover;
+    }
+    .after-sec::after,
+    .first-sec::after,
+    .third-sec::after,
+    .forth-sec::after,
+    .fifth-sec::after,
+    .sixth-sec::after,
+    .seventh-sec::after,
+    .eighth-sec::after{
+        display: none;
+    }
+    .first-sec{
+        margin-bottom: 70px;
+    }
+    .second-sec img{
+        margin-bottom: 20px;
+    }
+    .third-sec .roadmap-text{
+        margin-bottom: 20px;
+    }
+    .forth-sec img{
+        margin-bottom: 20px;
+    }
+    .fifth-sec .roadmap-text{
+        margin-bottom: 20px;
+    }
+    .sixth-sec img{
+        margin-bottom: 20px;
+    }
+    .sixth-sec .m-right{
+        margin-right: 0;
+    }
+    .seventh-sec .roadmap-text{
+        margin-bottom: 20px;
+    }
+    .eighth-sec img{
+        margin-bottom: 20px;
+    }
+    .eighth-sec .m-right{
+        margin-right: 0;
+    }
+    .ninth-sec .roadmap-text{
+        margin-bottom: 20px;
+    }
+}
+.noShadow{
+    box-shadow: none !important;
+    width: 185px;
+}
+.sfdm-button{
+    background: #c800d4;
+    color: white;
+}
+.mt-duper { margin-top: 5.8em; }
+.flex { display: flex; }
+.bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+} 
+.ticket-blurb{ text-justify: inter-word; }
+.h-img { height: 11vh; }
+.mint-sd, .mint-sfd {   position: relative; }
+.mt-super { margin-top: 7.9em; }
+#examples {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+.blurb-sm {
+    padding-bottom: 60px;
+}
+
+.blurb-md {
+    padding-bottom: 112px;
+}
+
+.valign {
+    text-align: center;
+}
+
+.center {
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.back {
+    z-index: -1;
+}
+
+.app {
+    width: 100%;
+}
+
+.clock {
+    width: 25%;
+}
+
+.demo-pic {
+    display: inline-block;
+}
+
+.demo-pic-alan {
+    height: 50% !important;
+    width: auto;
+    margin-top: 50%;
+}
+
+.mid-text {
+    padding-top: 120px;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.left-club-img {
+    z-index: 2;
+    left: 0px;
+    top: 0px;
+}
+
+.mid-club-img {
+
+    z-index: 1;
+}
+
+.right-club-img {
+
+    z-index: 0;
+}
+
+.left-links {
+    margin-bottom: 20px;
+}
+
+.bg-clock {
+    background-image: url("../assets/clock-w-bg.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    padding-top: 0px;
+    padding-bottom: 2px;
+}
+body {  overflow-x: hidden; }
+.theme-heading {
+    font-family: "Chelsea Market";
+    text-transform: uppercase;
+    font-weight: 800;
+}
+.small-heading {
+    font-size: 2vmax;
+    font-weight: 400;
+}
+.about-font { font-size: 5vmax; }
+.font-text-cbgb { font-size: 5.3vmax; }
+.textpurple{ color: #7a19ca; }
+.textpink{ color: #c801d4 !important}
+.textyellow{ color:#fafd08 !important; }
+.textorange{ color: #fbc401;}
+.textred{ color:#d20325; }
+.shadow-yellow{ text-shadow: 2px 6px 2px #fdee01;}
+.shadow-pink{ text-shadow: 2px 6px 2px #c801d4;}
+.shadow-white{ text-shadow: 2px 5px 2px #fff; }
+.shadow-purple { text-shadow: 2px 5px 1px #8633cd; }
+.line-height1-1{ line-height: 1.1;}
+.mt-up{ margin-top: -8px; }
+.accordion-wrapper .accordion-item { text-align: justify; }
+.fontsize3rem{ font-size: 3rem; }
+.fontsize4rem{ font-size: 4.8vmax; }
+.font-weight400{ font-weight: 400; }
+.fontsize34px { font-size: 34px !important; }
+.font-cbgb { font-family: 'CBGBFont'; }
+.rotate-190{ 
+    transform: rotateY(190deg);
+    -webkit-transform: rotateY(190deg);
+}
+.tag-line{
+    margin-top: -9.6% !important;
+    font-size: 1vmax !important;
+    max-width: 100% !important;
+    font-weight: 600 !important;
+    position: relative;
+    margin-left: 2em !important;
+}
+.Number-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    color: #fd1900;
+    z-index: 1;
+    text-align: center;
+    font-size: 23px;
+    font-family: "Chelsea Market";
+    text-shadow: -1px 1px 10px #fff;
+    font-weight: 600;
+}
+.bonus-para {
+    width: 100%;
+    max-width: 670px;
+    margin: 0px auto 30px;
+    font-size: 21px;
+    font-weight: 500;
+    line-height: 28px;
+    font-family: "Chelsea Market";
+}
+.bg-pink{ background-color: #e62490; }
+.mt-up-ext { margin-top: -6px; }
+.vp-center {
+    width: 100%;
+    display: inline-block;
+    height: 100%;
+}
+.player {
+    width: 100%;
+    height: 100% !important;
+    max-width: 100% !important;
+}
+.shadow-img { box-shadow: 1px 0px 10px 2px #fff; }
+.about-second {
+    font-size: 1.2vmax !important;
+    line-height: 26px !important;
+}
+.max-width100{ max-width: 100% !important;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width : 640px) {
+    .logoposter {
+        width: 100%;
+    }
+    html {
+        width: 100%;
+        overflow: hidden;
+    }
+    .first-paragraph {
+        font-size: 21px !important;
+        line-height: 1.3;
+    }
+    iframe {  height: auto; }
+    .theme-heading {
+        font-size: 25px;
+        top: 1px !important;
+    }
+    .tag-line {
+        margin-top: -25px !important;
+        font-size: 6px;
+    }
+    .small-hd { display: none; }
+    .fontsize3rem {  font-size: 1.5rem; }
+    .text { width: 100%; }
+    .super-fucking .col-lg-4 img {  max-width: 100%; }
+    .our-manifesto p {
+            font-size: 21px;
+            line-height: 32px;
+    }
+
+    .about-bg-img { height: 54px; }
+    .cbgb-bg-img {
+        width: 84%;
+        margin: auto;
+    }
+    .have-3-bg, .bonus-bg-img {  height: 77px; }
+    .example-bg-img {  height: 72px; }
+    .wow.zoomIn {
+        visibility: visible !important;
+        max-width: 74%;
+    }
+    .wow.fadeInLeft { visibility: visible !important; }
+    .put-bg-img { height: 48px; width: 100% !important; }
+    .animated-bg-img {
+        height: 56px;
+        width: 100% !important;
+    }
+    .manifest-bg-img {  height: 49px; }  
+    .roadmap-bg-img { height: 47px; }
+    .behind-bg-img {
+        width: 100% !important;
+        margin-top: -4px;
+    }
+    .keep-bg-img {  height: 43px; }
+    .faq-bg-img {  height: 39px; }
+    .fontsize34px { font-size: 25px !important; }
+	}
+
+
+
+
+/* .video-container {
+    height: fit-content;
+    max-height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+} */
+
+.video-container {
+    /* max-height: 100vh; */
+    /* width: 100vw !important; */
+    /* overflow: hidden; */
+}
+
+.video-container iframe {
+    /* width: 100% !important; */
+    height: 500px;
+    /* width: 100% !important;
+    height: auto !important; */
+}
+
+.text-small {
+    font-size: .7rem !important;
+}
+
+.bg-yellow {
+    background-color: yellow !important;
+} 
+
+.text-red {
+    color: red;
+}
+
+.imagine-text {
+    margin-top: 1rem;
+}
+
+.mobile-image {
+    display: none;
+}
+
+@media (max-width: 650px) {
+    .video-container iframe {
+        height: 300px;
+    }
+}
+@media (max-width: 350px) {
+    .video-container iframe {
+        height: 200px;
+    }
+}
+
+@media (max-width: 600px) {
+    .about-heading {
+        font-size: 3rem;
+    }
+    .about-bg-img {
+        width: 90% !important;
+        height: 100px;
+    }
+    .logo-cbgb { width: 100%; }
+    .mt-up-img { margin-top: 0% }
+.sixth-sec { margin-top: 11px; }
+}
+
+@media (max-width: 768px) {
+    .big-text {
+        font-size: 3rem !important;
+    }
+    .mobile-hidden {
+        display: none;
+    }
+}
+
+@media (max-width: 724px) {
+    .text-wrap {
+        top: 0 !important;
+    }
+}
+
+@media (max-width: 450px) {
+    .big-text {
+        font-size: 2rem !important;
+        top: 10px !important;
+    }
+    .imagine-text {
+        margin-top: 0 !important;
+    }
+}
+
+@media (max-width: 800px) {
+    .position-text {
+        top: 20px !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .roadmap-arrow {
+        display: none !important;
+    }
+    .second-sec .m-right {
+        margin-top: 0 !important;
+    }
+    .roadmap-mobile-hidden {
+        display: none;
+    }
+    .image-mobile-hidden {
+        display: none;
+    }
+    .alan-img {
+        width: 100%;
+        height: auto !important;
+    }
+    .mobile-image {
+        display: block;
+    }
+    .pc-image {
+        display: none;
+    }
+    .faq-heading img {
+        width: 100% !important;
+    }
+    .faq-heading h1 {
+        font-size: 3.3rem;
+    }
+    .roadmap-heading img {
+        width: 100% !important;
+        height: 100px !important;
+    }
+    .roadmap-heading h1 {
+        font-size: 3.3rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .big-text {
+        top: 20px !important;
+    }
+}
+@media (min-width: 1500px) {
+    .big-text {
+        top: 30px !important;
+    }
+}
+@media (min-width: 1800px) {
+    .big-text {
+        top: 50px !important;
+    }
+}
+@media (min-width: 2100px) {
+    .big-text {
+        top: 70px !important;
+    }
+}
+
+@media (min-width: 1450px) {
+    .lg-img-1 {
+        width: 1400px !important;
+    }
+    .lg-img-2 {
+        width: 100% !important;
+    }
+    .lg-text-2 {
+        top: 60px !important;
+    }
+}
+
+@media (min-width: 1400px) {
+    .lg-img-2, .lg-img-3 {
+        width: 100% !important;
+    }
+    .video-container iframe {
+        height: 90vh;
+    }
+}
+
+iframe {
+    z-index: -123456 !important;
+}
