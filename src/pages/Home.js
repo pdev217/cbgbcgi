@@ -10,12 +10,11 @@ import WOW from 'wowjs';
 import { superConf, fokingConf } from '../constants/config';
 import axios from "axios"
 import Web3 from "web3";
+import Spinner from 'react-bootstrap/Spinner';
 import abi  from "../constants/CBGBCGI.json";
 //toast
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-//modal
-import ModalPopup from '../components/Modal';
 /*
   Limit how many buyers get the early supporter bonuses ie first 1000 buyers get cool t-shirt
 */
@@ -31,7 +30,7 @@ function Home() {
   const { Moralis, account, user } = useMoralis();
   const { saveFile } = useMoralisFile();
   const { save } = useNewMoralisObject("s_d_nfts");
-  // const {  }
+  let tokenUrlArr = [];
 
   useEffect(() => {
     const contractCode = new web3.eth.Contract(abi.abi, process.env.REACT_APP_CONTRACT_ADDRESS);
@@ -39,44 +38,78 @@ function Home() {
     console.log(contractCode)
   },[])
 
-  const mint = async (lev, cat) => {
+  const mint = async (lev, cat="") => {
     let mintPrice;
-    const tokenUri = await getTokenURI(lev, cat);
+    const balance = await getBalance();
+    setMintStatus(true)
     if(lev == LVL_SUPER) {
       mintPrice = process.env.REACT_APP_SINGLE_PRICE;
-    }else if(lev == LVL_SUPER_FOKING_DUPER) {
+    }
+    if(lev == LVL_SUPER_FOKING_DUPER) {
       mintPrice = process.env.REACT_APP_SUPER_F_D_PRICE;
     }
+    if(lev == LVL_SUPER_DUPER) {
+      mintPrice = process.env.REACT_APP_SUPER_DUPER_PRICE
+    }
 
+    console.log("-----balance",balance)
+    console.log("-----mint price",mintPrice)
+
+    if(balance*1 < web3.utils.toWei(String(mintPrice))) {
+      setMintStatus(false)
+      toast.warn(`To mint ${lev}, ${mintPrice} ETH is required.`);
+      return;
+    }
+
+    const tokenUri = await getTokenURI(lev, cat);
     console.log(tokenUri)
 
-    if(tokenUri) {
+    if(lev == LVL_SUPER || lev == LVL_SUPER_FOKING_DUPER) {
+      if(tokenUri) {
+        contract.methods
+        .mint(String(tokenUri))
+        .send({ from: user.get("ethAddress"), value:web3.utils.toWei(String(mintPrice), "ether") })
+        .then(async () => {
+          setMintStatus(false);
+          let totalSupply = await getTotalSupply();
+          alertMessage(totalSupply, lev);
+        })
+        .catch((error) => {
+          if(error) {
+              setMintStatus(false)}
+          }
+        )
+        // console.log('----minted');
+      }
+    }else {
       contract.methods
-      .mint(String(tokenUri))
+      .doubleMint(tokenUri)
       .send({ from: user.get("ethAddress"), value:web3.utils.toWei(String(mintPrice), "ether") })
       .then(async () => {
         setMintStatus(false);
-  
         let totalSupply = await getTotalSupply();
-        var tymessage = "THANKS FOR MINTING!\n";
-        if (lev === LVL_SUPER_DUPER) {
-          tymessage += "\nPlease register your SUPER DUPER purchase at https://docs.google.com/forms/d/e/1FAIpQLSeM_1n_kygNYBnM4wDnDD6uUrDVEPrkNQY2twkIU21PwPCelQ/viewform?vc=0&c=0&w=1&flr=0 to receive your SUPER DUPER Benefits!!";
-        }
-        if (lev === LVL_SUPER_FOKING_DUPER){
-          tymessage += "\nPlease register your SUPER F*CKING DUPER purchase at https://docs.google.com/forms/d/e/1FAIpQLScW8Bzp507GPoCJmS_NvdbSFWH2Bk3LFpQZwjwg3qGCr3TosQ/viewform?vc=0&c=0&w=1&flr=0 to receive your SUPER F*CKING DUPER Benefits!!";
-        }
-        if (totalSupply <= 1000){
-          tymessage += "\n\nCongratulations! You are one of the first 1000 to mint! Please register at https://docs.google.com/forms/d/e/1FAIpQLSfoiWLZGHDhOsxsoBxalP0ttPnKtkMcDxazuQp2myqOCHc1Yw/viewform?vc=0&c=0&w=1&flr=0 to receive your First 1000 Benefits!";
-        }
-        alert(tymessage);
+        alertMessage(totalSupply, lev);
       })
       .catch((error) => {
         if(error) {
             setMintStatus(false)}
         }
       )
-      // console.log('----minted');
     }
+  }
+
+  const alertMessage = (totalSupply, lev) => {
+    var tymessage = "THANKS FOR MINTING!\n";
+    if (lev === LVL_SUPER_DUPER) {
+      tymessage += "\nPlease register your SUPER DUPER purchase at https://docs.google.com/forms/d/e/1FAIpQLSeM_1n_kygNYBnM4wDnDD6uUrDVEPrkNQY2twkIU21PwPCelQ/viewform?vc=0&c=0&w=1&flr=0 to receive your SUPER DUPER Benefits!!";
+    }
+    if (lev === LVL_SUPER_FOKING_DUPER){
+      tymessage += "\nPlease register your SUPER F*CKING DUPER purchase at https://docs.google.com/forms/d/e/1FAIpQLScW8Bzp507GPoCJmS_NvdbSFWH2Bk3LFpQZwjwg3qGCr3TosQ/viewform?vc=0&c=0&w=1&flr=0 to receive your SUPER F*CKING DUPER Benefits!!";
+    }
+    if (totalSupply <= 1000){
+      tymessage += "\n\nCongratulations! You are one of the first 1000 to mint! Please register at https://docs.google.com/forms/d/e/1FAIpQLSfoiWLZGHDhOsxsoBxalP0ttPnKtkMcDxazuQp2myqOCHc1Yw/viewform?vc=0&c=0&w=1&flr=0 to receive your First 1000 Benefits!";
+    }
+    alert(tymessage);
   }
 
   const getTokenURI = async (lev, cat) => {
@@ -100,74 +133,70 @@ function Home() {
 
       if(row.length == 0) {
         const pinataCat = await getDataFromPinata(cat);
-        // console.log(capitalizeFirstLetter(cat.toLowerCase()+"2"))
-        const imageName = excelData[random][1].replace("2CBGB", "CBGB")
-        console.log(imageName)
-        // console.log(String('https://ipfs.io/ipfs/'+pinataCat.ipfs_pin_hash+'/'+imageName))
-
         //metadata
-        const metadata = {
-          "name": excelData[random][1],
-          "description": excelData[random][2],
-          "image": String('https://ipfs.io/ipfs/'+pinataCat.ipfs_pin_hash+'/'+imageName),
-          "attributes": [
-              {
-                "trait_type": "character_name",
-                "value": String(excelData[random][2]),
-              },
-              {
-                "trait_type": "birth_date",
-                "value": String(excelData[random][3]),
-              },
-              {
-                "trait_type": "character_action",
-                "value": String(excelData[random][4]),
-              },
-              {
-                "trait_type": "background_image",
-                "value": String(excelData[random][5]),
-              },
-              {
-                "trait_type": "background_color",
-                "value": String(excelData[random][6]),
-              },
-              {
-                "trait_type": "text_color",
-                "value": String(excelData[random][7]),
-              },
-              {
-                "trait_type": "border_color",
-                "value": String(excelData[random][8]),
-              },
-              {
-                  "display_type": "boost_percentage", 
-                  "trait_type": "musical_genius", 
-                  "value": Number(excelData[random][9])
-              },
-              {
-                  "display_type": "boost_percentage", 
-                  "trait_type": "hotness", 
-                  "value": Number(excelData[random][10])
-              },
-              {
-                "display_type": "boost_percentage", 
-                "trait_type": "stamina", 
-                "value": Number(excelData[random][11])
-              },
-              {
-                  "trait_type": "shredability", 
-                  "value": Number(excelData[random][12])
-              }, 
-              {
-                  "trait_type": "dancability", 
-                  "value": Number(excelData[random][13])
-              }, 
-              {
-                  "trait_type": "drug_tolerance", 
-                  "value": Number(excelData[random][14])
-              }, 
-          ]
-        };
+        const metadata = makeMetaData(excelData, random, pinataCat)
+        // const metadata = {
+        //   "name": excelData[random][1],
+        //   "description": excelData[random][2],
+        //   "image": String('https://ipfs.io/ipfs/'+pinataCat.ipfs_pin_hash+'/'+excelData[random][1]),
+        //   "attributes": [
+        //       {
+        //         "trait_type": "character_name",
+        //         "value": String(excelData[random][2]),
+        //       },
+        //       {
+        //         "trait_type": "birth_date",
+        //         "value": String(excelData[random][3]),
+        //       },
+        //       {
+        //         "trait_type": "character_action",
+        //         "value": String(excelData[random][4]),
+        //       },
+        //       {
+        //         "trait_type": "background_image",
+        //         "value": String(excelData[random][5]),
+        //       },
+        //       {
+        //         "trait_type": "background_color",
+        //         "value": String(excelData[random][6]),
+        //       },
+        //       {
+        //         "trait_type": "text_color",
+        //         "value": String(excelData[random][7]),
+        //       },
+        //       {
+        //         "trait_type": "border_color",
+        //         "value": String(excelData[random][8]),
+        //       },
+        //       {
+        //           "display_type": "boost_percentage", 
+        //           "trait_type": "musical_genius", 
+        //           "value": Number(excelData[random][9])
+        //       },
+        //       {
+        //           "display_type": "boost_percentage", 
+        //           "trait_type": "hotness", 
+        //           "value": Number(excelData[random][10])
+        //       },
+        //       {
+        //         "display_type": "boost_percentage", 
+        //         "trait_type": "stamina", 
+        //         "value": Number(excelData[random][11])
+        //       },
+        //       {
+        //           "trait_type": "shredability", 
+        //           "value": Number(excelData[random][12])
+        //       }, 
+        //       {
+        //           "trait_type": "dancability", 
+        //           "value": Number(excelData[random][13])
+        //       }, 
+        //       {
+        //           "trait_type": "drug_tolerance", 
+        //           "value": Number(excelData[random][14])
+        //       }, 
+        //   ]
+        // };
 
         console.log(metadata)
         let metadataurl = await uploadFileToMoralis(metadata);
@@ -201,6 +230,22 @@ function Home() {
       }
     }
 
+    if(lev == LVL_SUPER_DUPER) {
+      const excelData = await getExcelData("CBGB (SUPER DUPER LEVEL 200) Guitar Picks");
+      for (let i = 2; i < 100; i++) {
+        const random = getRandomInt(2, i);
+        const nftName = excelData[random][1];
+        const NFT = Moralis.Object.extend(DB);
+        const query = new Moralis.Query(NFT);
+        query.equalTo("level", lev);
+        query.equalTo("name", nftName)
+        const row = await query.find();
+        tokenUrlArr.push(row[0].attributes.token_uri)
+      }
+      return tokenUrlArr;
+      // const pinataCat = await getDataFromPinata("(SUPER DUPER LEVEL 200) Guitar Picks".toUpperCase());
+    }
+
     if(lev == LVL_SUPER_FOKING_DUPER) {
       const NFT = Moralis.Object.extend("nfts");
       const query = new Moralis.Query(NFT);
@@ -208,14 +253,79 @@ function Home() {
       query.equalTo("level", lev);
       const row = await query.find();
       // let metadataurl = await uploadFileToMoralis(row[0].attributes.metadata);
-      //   let tokenUrl = 'https://ipfs.moralis.io/ipfs/' + metadataurl._hash
+      // let tokenUrl = 'https://ipfs.moralis.io/ipfs/' + metadataurl._hash
       //   console.log(tokenUrl)
-      console.log(row)
       const tokenURI = row[0].attributes.token_uri;
-      console.log(tokenURI)
       return tokenURI;
     }
     
+  }
+
+  const makeMetaData = (data, order, pinataCat) => {
+    const metadata = {
+      "name": data[order][1],
+      "description": data[order][2],
+      "image": String('https://ipfs.io/ipfs/'+pinataCat.ipfs_pin_hash+'/'+data[order][1]),
+      "attributes": [
+          {
+            "trait_type": "character_name",
+            "value": String(data[order][2]),
+          },
+          {
+            "trait_type": "birth_date",
+            "value": String(data[order][3]),
+          },
+          {
+            "trait_type": "character_action",
+            "value": String(data[order][4]),
+          },
+          {
+            "trait_type": "background_image",
+            "value": String(data[order][5]),
+          },
+          {
+            "trait_type": "background_color",
+            "value": String(data[order][6]),
+          },
+          {
+            "trait_type": "text_color",
+            "value": String(data[order][7]),
+          },
+          {
+            "trait_type": "border_color",
+            "value": String(data[order][8]),
+          },
+          {
+              "display_type": "boost_percentage", 
+              "trait_type": "musical_genius", 
+              "value": Number(data[order][9])
+          },
+          {
+              "display_type": "boost_percentage", 
+              "trait_type": "hotness", 
+              "value": Number(data[order][10])
+          },
+          {
+            "display_type": "boost_percentage", 
+            "trait_type": "stamina", 
+            "value": Number(data[order][11])
+          },
+          {
+              "trait_type": "shredability", 
+              "value": Number(data[order][12])
+          }, 
+          {
+              "trait_type": "dancability", 
+              "value": Number(data[order][13])
+          }, 
+          {
+              "trait_type": "drug_tolerance", 
+              "value": Number(data[order][14])
+          }, 
+      ]
+    };
+
+    return metadata
   }
 
   const getTotalSupply = async () => {
@@ -269,19 +379,23 @@ function Home() {
       
     const res = await axios(config);
     res.data.rows.map(e => {
-        if(String(e.metadata.name?.toUpperCase()) == String(cat+" CBGB NFTS") ) {
+        if(String(e.metadata.name?.toUpperCase()) == String("CBGB " +cat+" TAKE 2") ) {
             selectedGroup = e;
         }
     })
-
     return selectedGroup;
+  }
+
+  const getBalance = async () => {
+    let balance = await web3.eth.getBalance(account);
+    return balance
 }
 
   return (
     <div className="App">
       <ToastContainer
-        position="top-left"
-        autoClose={false}
+        position="top-right"
+        autoClose={3000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
@@ -508,7 +622,24 @@ function Home() {
                     <div className='role'>{e.role}</div>
                     <div className='row'>
                       <div className='col-4 m-auto px-1'>
-                        <button className='mint' name="" width="100%" onClick={() => mint(LVL_SUPER, e.category)}>Mint Super</button>
+                        <button 
+                        className='mint' 
+                        name="" 
+                        width="100%"
+                        disabled={mintStatus}
+                        onClick={() => mint(LVL_SUPER, e.category)}
+                        >
+                          <span className={mintStatus?'d-none':'d-block'}>Mint Super</span>
+                          <div className={mintStatus?'d-block':'d-none'}>
+                              <Spinner
+                                  as="span"
+                                  animation="grow"
+                                  size="sm"
+                                  role="status"
+                                  aria-hidden="true"
+                              /> loading
+                          </div>
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -567,7 +698,22 @@ function Home() {
             <img className="img-responsive" src="/Group-172.png" width='80%'/>
           </div>
           <p className='apear mt-2'>And appear as an extra in the new side-by-side animated version of <span> CBGB </span></p>
-          {/* <button className='mint mint-sfd text-red bg-yellow' onClick={() => mint(LVL_SUPER_FOKING_DUPER, "HILLY")} style={{ width: 'fit-content' }}>Mint Super Duper</button> */}
+          <button 
+          className='mint mint-sfd text-red bg-yellow' 
+          disabled={mintStatus}
+          onClick={() => mint(LVL_SUPER_DUPER)} 
+          style={{ width: 'fit-content' }}>
+            <span className={mintStatus?'d-none':'d-block'}>Mint Super Duper</span>
+            <div className={mintStatus?'d-block':'d-none'}>
+                <Spinner
+                    as="span"
+                    animation="grow"
+                    size="sm"
+                    role="status"
+                    aria-hidden="true"
+                /> loading
+            </div>
+          </button>
           <div className='row m-auto' style={{ width: '63%' }}>
             <div className='col-12'>
               <p className='apear text-light mt-2'>AND RECEIVE ONE OF THE 200 EXCLUSIVE GOLD GUITAR PICK NFTS!!</p>
@@ -618,7 +764,21 @@ function Home() {
                     <div className='animated-headline'>{e.title}</div>
                     <div className='animated-text'>{e.desc}</div>
                     <div className='col-lg-4 col-md-6 m-auto px-1'>
-                        <button className='mint mint-sfd sfdm-button' onClick={() => mint(LVL_SUPER_FOKING_DUPER, e.category)}>Mint Super F*cking Duper</button>
+                        <button 
+                        className='mint mint-sfd sfdm-button' 
+                        disabled={mintStatus}
+                        onClick={() => mint(LVL_SUPER_FOKING_DUPER, e.category)}>
+                          <span className={mintStatus?'d-none':'d-block'}>Mint Super F*cking Duper</span>
+                          <div className={mintStatus?'d-block':'d-none'}>
+                              <Spinner
+                                  as="span"
+                                  animation="grow"
+                                  size="sm"
+                                  role="status"
+                                  aria-hidden="true"
+                              /> loading
+                          </div>
+                        </button>
                     </div>
                   </div>
                 ))

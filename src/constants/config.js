@@ -12,13 +12,13 @@ const superConf = [
         role: "played by Malin Akerman"
     },
     {
-        category: "RAMONES",
+        category: "JOEY RAMONE",
         img: "https://cbgb.mypinata.cloud/ipfs/QmVhie1jBGkwGUJe24pbmRxCbMw2Pdx8rbUyraJc6pFiHw/Joey2-Scroll-Video.gif",
         name: "The Ramones",
         role: "played by Joel David Moore"
     },
     {
-        category: "LISA KRISTAL",
+        category: "LISA",
         img: "https://cbgb.mypinata.cloud/ipfs/QmVhie1jBGkwGUJe24pbmRxCbMw2Pdx8rbUyraJc6pFiHw/Lisa2-Scroll-Video.gif",
         name: "Lisa Kristal",
         role: "played by Ashley Greene"
@@ -48,7 +48,7 @@ const superConf = [
         role: "played by Donal Logue"
     },
     {
-        category: "PATTI SMITH",
+        category: "PATTI",
         img: "https://cbgb.mypinata.cloud/ipfs/QmVhie1jBGkwGUJe24pbmRxCbMw2Pdx8rbUyraJc6pFiHw/Patti2-Scroll-Video.gif",
         name: "Patti Smith",
         role: "played by Mickey Sumner"
@@ -96,7 +96,7 @@ const superConf = [
         role: "played by Jared Carter"
     },
     {
-        category: "JONATHAN DOG",
+        category: "DOG",
         img: "https://cbgb.mypinata.cloud/ipfs/QmVhie1jBGkwGUJe24pbmRxCbMw2Pdx8rbUyraJc6pFiHw/Dog2-Scroll-Video.gif",
         name: "Jonathan the Dog",
         role: "played by Teddy"
@@ -120,7 +120,7 @@ const superConf = [
         role: "played by Freddy Rodriguez"
     },
     {
-        category: "WAYNECOUNTY",
+        category: "WAYNE COUNTY",
         img: "https://cbgb.mypinata.cloud/ipfs/QmVhie1jBGkwGUJe24pbmRxCbMw2Pdx8rbUyraJc6pFiHw/WayneCounty2-Scroll-Video.gif",
         name: "Wayne County",
         role: "played by Caleb McCotter"
