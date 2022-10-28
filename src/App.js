@@ -1,41 +1,16 @@
-import logo from './logo.svg';
-import Header from './components/Header'
-import React, { useState, useEffect } from 'react';
-import Main from './Main'
+import React, { useState } from 'react';
+import Home from './pages/Home';
+import 'animate.css';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import './static/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-  const [fullyLoaded, setFullyLoaded] = useState(false);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setFullyLoaded(true)
-    }, 1000);
-
-  }, []);
   return (
-
     <div className="App">
-      <Main />
+      <Home />
     </div>
   );
 }
-const Accordion = ({ title, children }) => {
-  const [isOpen, setOpen] = useState(false);
-  return (
-    <div className="accordion-wrapper">
-
-      <div
-        className={`accordion-title ${isOpen ? "open" : ""}`}
-        onClick={() => setOpen(!isOpen)}
-      >
-        {title}
-      </div>
-      <div className={`accordion-item ${!isOpen ? "collapsed" : ""}`}>
-        <div className="accordion-content">{children}</div>
-      </div>
-    </div>
-  );
-};
 export default App;

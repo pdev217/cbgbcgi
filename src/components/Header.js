@@ -1,10 +1,9 @@
 import '../static/Header.css';
 import { useMoralis, useChain } from "react-moralis";
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 function Header() {
     const { isAuthenticated, user, authenticate, logout } = useMoralis();
-    const { chainId, chain, account } = useChain();
-    const [startTime, setStartTime] = useState(null);
+    const { chainId, account } = useChain();
 
     useEffect(() => {
 
@@ -38,25 +37,25 @@ function Header() {
                     <div className='col-lg-1 col-md-2 col-sm-2 col-2 px-2 px-2'>
                         <img src="/header-poster-scaled-4.png" className='logo logoposter img-responsive' width='10%'/>
                     </div>
-                    <div class="col-lg-1  col-md-4 col-sm-4 col-4 left-links txt">
-                        <a className='connect right-links txt' href='https://discord.com/invite/kezTCUpK5H'>DISCORD</a>
-                    </div>
-        
     
                     <div className="col-lg-1  col-md-4 col-sm-4 col-4 left-links txt">
                         {/* {isAuthenticated && <a className='airdrop'>AIRDROP </a>}
                         {isAuthenticated && <a className='whitelist'>WHITELIST </a>} */}
-                        {!isAuthenticated && <a className='right-links txt bg-pink rounded pt-2 pb-2 border' href="#" onClick={
+                        {!isAuthenticated && <a className='right-links txt pt-2' href="#" onClick={
                           async () => {
                             await authenticate({ provider: "injected" });
                             window.localStorage.setItem("connectorId", "injected");
                           }
                         }>CONNECT WALLET </a>}
-                        {isAuthenticated && <a className='connect right-links txt bg-pink rounded pt-2 pb-2 border' href="#" onClick={() => logout()}>DISCONNECT </a>}
+                        {isAuthenticated && <a className='connect right-links txt pt-2' href="#" onClick={() => logout()}>DISCONNECT </a>}
                     </div>
 
-                    <div class="col-lg-1  col-md-4 col-sm-4 col-4 left-links txt">
-                        <a className='connect right-links txt' href='/#token'>NFTs</a>
+                    <div className="col-lg-1  col-md-4 col-sm-4 col-4 left-links txt">
+                        <a className='connect right-links txt text-uppercase' href='/#token'>Buy tokens</a>
+                    </div>
+
+                    <div className="col-lg-1  col-md-4 col-sm-4 col-4 left-links txt">
+                        <a className='connect right-links txt' href='https://discord.com/invite/kezTCUpK5H'>DISCORD</a>
                     </div>
                 
                 </div>

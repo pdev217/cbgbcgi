@@ -3,9 +3,7 @@ import React, { useState, useEffect, Fragment, Component } from 'react';
 
 import '../static/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useNavigate } from "react-router-dom";
 import { useMoralis, useChain, useMoralisFile, useNewMoralisObject } from "react-moralis";
-import { BigNumber } from "@ethersproject/bignumber";
 import WOW from 'wowjs';
 import { superConf, fokingConf } from '../constants/config';
 import axios from "axios"
@@ -15,6 +13,7 @@ import abi  from "../constants/CBGBCGI.json";
 //toast
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Slider from "react-slick";
 /*
   Limit how many buyers get the early supporter bonuses ie first 1000 buyers get cool t-shirt
 */
@@ -25,6 +24,59 @@ const LVL_SUPER_FOKING_DUPER = "SUPER F*CKING DUPER";
 const web3 = new Web3(Web3.givenProvider);
 
 function Home() {
+  let settings = {
+    dots: false,
+    arrows:false,
+    infinite: true,
+    speed: 500,
+    autoplay: true,
+    autoplaySpeed: 2500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    responsive: [
+        {
+          breakpoint: 1400,
+          settings: {
+              infinite: true,
+              slidesToShow: 3,
+              slidesToScroll: 1,
+          }
+        },
+        {
+            breakpoint: 992,
+            settings: {
+                infinite: true,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+            }
+        },
+        {
+            breakpoint: 768,
+            settings: {
+                infinite: true,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+            }
+        },
+        {
+            breakpoint: 576,
+            settings: {
+                infinite: true,
+                slidesToShow: 2,
+                slidesToScroll: 1 ,
+            }
+        },
+        {
+            breakpoint: 480,
+            settings: {
+                infinite: true,
+                slidesToShow: 1,
+                slidesToScroll: 1 ,
+            }
+        }
+      ]
+  };
+
   const [contract, setContract] = useState('');
   const [mintStatus, setMintStatus] = useState(false);
   const { Moralis, account, user } = useMoralis();
@@ -36,6 +88,9 @@ function Home() {
     const contractCode = new web3.eth.Contract(abi.abi, process.env.REACT_APP_CONTRACT_ADDRESS);
     setContract(contractCode)
     console.log(contractCode)
+    new WOW.WOW({
+      live: false
+    }).init();
   },[])
 
   const mint = async (lev, cat="") => {
@@ -417,12 +472,12 @@ function Home() {
           </div>
           <div className="container-fluid video-container">
               {/* <div className='Row'> */}
-                <iframe src="https://player.vimeo.com/video/687707772?h=0d651714a3" frameborder="0" className='responsive-iframes col-12' allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                <iframe src="https://player.vimeo.com/video/687707772?h=0d651714a3" frameBorder="0" className='responsive-iframes col-12' allow="autoplay; fullscreen; picture-in-picture" allowFullScreen></iframe>
               {/* </div> */}
             </div>
           <div className='container'>
             <div className='row'>
-                <p className="second-paragraph">We're creating a boffo, gonzo, fully animated enhanced version of the 2013 feature film "CBGB" about the legendary rock 'n' roll club. </p>
+                <p className="second-paragraph">We're creating a boffo, gonzo, fully animated enhanced version of the 2013 feature film <span className='cbgb-txt'>CBGB</span> about the legendary rock 'n' roll club. </p>
             </div>
           </div>
             <br />
@@ -431,19 +486,27 @@ function Home() {
       </div>
       <div className='about' id="about">
       <div className="container-fluid">
-        <div class="row position-relative">
-        <img className="img-responsive mx-auto about-bg-img" src="/Layer590.png" style={{ width:'67%' }} />
-        <h1 className='theme-heading position-absolute textpurple shadow-white about-font about-heading' style={{top:'9px'}}> About </h1>
+        <div className="row position-relative">
+        <img className="img-responsive mx-auto about-bg-img" src="/Layer590.png" style={{ width:'44%' }} />
+        <h1 className='theme-heading position-absolute textpurple shadow-white about-font about-heading' style={{top:'7px'}}> About </h1>
         </div>
       </div>
       <div className='container-fluid'>
         <div className='row'>
           <div className='col-lg-12'>
-            <p className='about-first'>
-              <span className='textpink'>
-                CBGB
-              </span> was a legendary club that was the birthplace of punk rock - The place that launched the careers of some of the most influential rockers of all time: Blondie, The Ramones, Patti Smith, Iggy Pop, The Talking Heads and many more...
-            </p>
+            <div className='position-relative'>
+              <div className='cheetah-about animate-person'>
+                <img src='https://cbgb.mypinata.cloud/ipfs/QmcxhPTm94unWzrjSKjXy551s4papARRCBfPUKYViibny5/Cheetah-dances-smaller.gif' />
+              </div>
+              <p className='about-first'>
+                <span className=''>
+                  CBGB
+                </span> was the birthplace of punk rock - The legendary club that launched the careers of some of the most influential rockers of all time: Blondie, The Ramones, Patti Smith, Iggy Pop, Talking Heads, and many more...
+              </p>
+              <div className='lisa-about animate-person'>
+                <img src='https://cbgb.mypinata.cloud/ipfs/QmcxhPTm94unWzrjSKjXy551s4papARRCBfPUKYViibny5/Lisa-smaller-for-site.gif' />
+              </div>
+            </div>
           </div>
         </div>
         <div className='row'>
@@ -455,8 +518,15 @@ function Home() {
           </div>
           <div className='col-md-4 col-sm-8 mt-auto mb-auto'>
             <p className='about-second fs-4'>
-              We are taking the 2013 <span className='second-cbgb textpink'>CBGB</span>  movie and turning it into a side-by-side Director's Cut fully 3D animated version
-             using the exact same soundtrack...  </p>
+              We are bringing you a side-by-side Director’s Cut of the <span className='cbgb-txt'>2013 CBGB movie</span>. Viewers can enjoy the great soundtrack with or without animation - 
+              or with AND without!  Up to you!
+              <br />
+              <div className='mt-md-5'>
+                And we are calling it...
+              </div>
+              {/* We are taking <span className='second-cbgb textpink'>CBGB</span> the 2013 movie and turning it into a side-by-side Director's Cut fully 3D animated version
+             using the exact same soundtrack...  </p> */}
+            </p>
           </div>
           <div className='col-2 mobile-hidden'>
             <img src='/MT_CBGB_10.png' className='img-responsive shadow-img' width='100%' />
@@ -478,23 +548,27 @@ function Home() {
         </div>
         <div className='row'>
           <div className='col-4 text-end p-0'>
-            <img src='/demo-left.png' className='img-fluid demo-pic demo-pic-alan alan-img' style={{ transform: 'translateX(30px)' }} />
+            <img src='/demo-left.png' className='img-fluid demo-pic demo-pic-alan alan-img wow bounceInLeft' style={{ transform: 'translateX(30px)' }} />
           </div>
           <div className='col-4 p-0'>
             <img src='/demo-mid.png' className='img-fluid demo-pic' />
           </div>
           <div className='col-4 p-0 text-start'>
-            <img src='/demo-right.png' className='img-fluid demo-pic demo-pic-alan alan-img' style={{ transform: 'translateX(-30px)' }} />
+            <img src='/demo-right.png' className='img-fluid demo-pic demo-pic-alan alan-img wow bounceInRight' data-wow-duration="2s" />
           </div>
         </div>
-    
-        <div className='imagine imagine-text'> Imagine Alan Rickman As CBGB Club Owner Hilly Kristal, And Being Able to see <span className='d-sm-block'> him side-by-side fully animated. </span> </div>
+        <div className='position-relative'>
+          <div className='imagine imagine-text col-md-6'> Imagine watching Alan Rickman play CBGB Club Owner Hilly Kristal, AND animated Alan Rickman playing CBGB Club Owner Hilly Kristal. Side-by-side.</div>
+          <div className='animate-person hilly-gif'>
+            <img src='https://cbgb.mypinata.cloud/ipfs/QmcxhPTm94unWzrjSKjXy551s4papARRCBfPUKYViibny5/Hilly-smaller-for-site.gif' />
+          </div>
+        </div>
       </div>
       <div className='ways' id="token">
         <div className="container-fluid">
             <div className='row position-relative text-center'>
               <img className="img-responsive m-auto have-3-bg" src="/Layer590.png" style={{ width:'1110px' }}/>
-              <h1 class="text-white shadow-purple position-absolute theme-heading line-height1-1 small-headings position-text" style={{top:'55px'}}> We Have <span className='textyellow font-cbgb font-weight400'> 3 </span> Ways To Jump On board! </h1>
+              <h1 className="text-white shadow-purple position-absolute theme-heading line-height1-1 small-headings position-text" style={{top:'55px'}}> You Have <span className='textyellow font-cbgb font-weight400'>3 </span> Ways To Jump Onboard! </h1>
               </div>
         </div>
         <br /><br />
@@ -516,7 +590,7 @@ function Home() {
                   </p>
                 </div>
                 <a href='#bonus' className='w-100'>
-                    <img src='./Bonus.png' className='img-responsive' width='176px' />
+                    <img src='./Bonus.png' className='img-responsive wow pulse animated' data-wow-delay="300ms" data-wow-iteration="infinite" width='176px' />
                 </a>
         
                 <div className='row text-center bottom mt-4'>
@@ -566,8 +640,7 @@ function Home() {
                 <div>
                   <p className='ticket-blurb text-center px-5'>
                     We are SELLING only <span  className='cbgbfont'>21</span><span> ANIMATED GIFs </span>
-                    of the leads of the film. It’s an exclusive club. Each is one of
-                    a kind museum quality. Imagine our punkers at the New York MET.
+                    of the leads of the film. It’s an exclusive club. Each is one-of-a kind museum quality. Imagine our punkers at the New York MET.
                     For those special 21 they will also <span>GET THEMSELVES ANIMATED INTO
                       THE FILM</span>, their <span>NAME ON THE WALL</span> and one of the <span>TOKENS</span> too!
                   </p>
@@ -665,10 +738,18 @@ function Home() {
                   <img className="img-responsive m-auto wow zoomIn" src="/Bonus-01.png" style={{width:'478px'}}/>
               </div>
           </div>
-          <p className='text-white bonus-para mt-4'>
-            For the first <span className='thousand'>1000</span> who purchase tokens we will add <span className='thousand'>YOUR NAME</span> to the illustrious storied walls of our animated Club.
-            Your name or band name (completely up to you) will be featured as another sticker or poster or a bit of graffiti and it will be immortalized alongside Blondie, The Ramones, The Police and more. Pretty cool, right?
-          </p>
+          <div className='position-relative'>
+            <div className='animate-person lou-gif'>
+              <img src='https://cbgb.mypinata.cloud/ipfs/QmcxhPTm94unWzrjSKjXy551s4papARRCBfPUKYViibny5/Lou-Reed-smaller-for-site.gif' alt="lou reed gif" />
+            </div>
+            <p className='text-white bonus-para mt-4'>
+              For the first <span className='thousand'>1000</span> who purchase tokens we will add <span className='thousand'>YOUR NAME</span> to the illustrious storied walls of our animated Club.
+              Your name or band name (completely up to you) will be featured as another sticker or poster or a bit of graffiti and it will be immortalized alongside Blondie, The Ramones, The Police and more. Pretty cool, right?
+            </p>
+            <div className='animate-person terry-gif'>
+              <img src='https://cbgb.mypinata.cloud/ipfs/QmcxhPTm94unWzrjSKjXy551s4papARRCBfPUKYViibny5/Terry-Ork-smaller-for-site.gif' alt="lou reed gif" />
+            </div>
+          </div>
           <br />
 
           <div className="container-fluid">
@@ -694,8 +775,21 @@ function Home() {
               </div>
           </div>
           <br /><br />
-          <div className="container-fluid">
-            <img className="img-responsive" src="/Group-172.png" width='80%'/>
+          <div className="container">
+            <div className='row justify-content-center align-items-center'>
+              <div className='col-md-3'>
+                <img src="/randomrudu1.png" className='w-100 img-responsive' />
+              </div>
+              <div className='col-md-3 offset-md-1'>
+                <img src="/randomrude-arrow.png" className='w-100 img-responsive animate__animated animate__shakeX animate__infinite' />
+              </div>
+              <div className='col-md-3 offset-md-1'>
+                <img src="/randomrude2.png" className='w-100 img-responsive' />
+              </div>
+              <div className='col-md-6'>
+                <img src="/randomrude3.png" className='w-100 img-responsive' />
+              </div>
+            </div>
           </div>
           <p className='apear mt-2'>And appear as an extra in the new side-by-side animated version of <span> CBGB </span></p>
           <button 
@@ -719,13 +813,25 @@ function Home() {
               <p className='apear text-light mt-2'>AND RECEIVE ONE OF THE 200 EXCLUSIVE GOLD GUITAR PICK NFTS!!</p>
             </div>
             <div className='col-lg-4 px-3'>
-              <img src='/Blondie2CBG.jpg' className='w-100' alt='' style={{ boxShadow: '0px 1px 8px 2px #fff' }} />
+              <div className='flip-animated'>
+                <div className='animate__animated animate__fadeInRight wow animated_duration2s'>
+                  <img src='/Blondie2CBG.jpg' className='w-100' alt='' style={{ boxShadow: '0px 1px 8px 2px #fff' }} />
+                </div>
+              </div>
             </div>
             <div className='col-lg-4 px-3'>
-              <img src='/Genya2CBGB.jpg' className='w-100' alt='' style={{ boxShadow: '0px 1px 8px 2px #fff' }} />
+              <div className='flip-animated'>
+                <div className='animate__animated animate__fadeInRight wow animated_duration2s'>
+                  <img src='/Genya2CBGB.jpg' className='w-100' alt='' style={{ boxShadow: '0px 1px 8px 2px #fff' }} />                  
+                </div>
+              </div>
             </div>
             <div className='col-lg-4 px-3'>
-              <img src='/Cheetah2CBGB.jpg' className='w-100' alt='' style={{ boxShadow: '0px 1px 8px 2px #fff' }} />
+              <div className='flip-animated'>
+                <div className='animate__animated animate__fadeInRight wow animated_duration2s'>
+                  <img src='/Cheetah2CBGB.jpg' className='w-100' alt='' style={{ boxShadow: '0px 1px 8px 2px #fff' }} />
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -762,6 +868,7 @@ function Home() {
                     className='thumbnail img-fluid' />
                   
                     <div className='animated-headline'>{e.title}</div>
+                    <div className='animated-text'>{e.smallTitle}</div>
                     <div className='animated-text'>{e.desc}</div>
                     <div className='col-lg-4 col-md-6 m-auto px-1'>
                         <button 
@@ -805,10 +912,7 @@ function Home() {
         <div className='row'>
           <div className='col-12'>
           <p>
-            Rock 'n' roll musicians and the filmmakers that follow them have been telling stories infused with the music they love since that first rock 'n' roller 
-            strung an electric guitar and cranked up the volume. And right beside them some crazy film student decided to capture it on video. The birth of the Music Video. 
-            Those songs and those stories, though radical and revolutionary at first, shaped our culture today. At CBGB CGI we believe that storytellers and artists deserve an outlet
-             where they can be valued and supported without having to bow to the machine of big media. So we're tilting the model on its head and testing a new architecture using NFTS that can connect storytellers directly with their audience and essentially decentralize content production. But we are going even further: we are designing this so that our NFT holders will reap the rewards alongside the investors (Film CBGB LLC and 315 Bowery), the filmmakers and actors and everyone else. We are all in this together. If CBGB CGI is a runaway hit, which we firmly believe it can be, the entire community will prosper. And those with a greater piece of it, those NFT holders, will see greater rewards!
+            Rock 'n' roll musicians and the filmmakers that follow them have been telling stories infused with the music they love since that first rock 'n' roller strung an electric guitar and cranked up the volume. And right beside them some crazy film student decided to capture it on video. The birth of the Music Video. Those songs and those stories, though radical and revolutionary at first, shaped our culture today. At CBGB CGI we believe that storytellers and artists deserve an outlet where they can be valued and supported without having to bow to the machine of big media. So we’re tilting the model on its head and testing a new architecture using NFTs that can connect storytellers directly with their audience and essentially decentralize content production. But we are going even further: we are designing this so that our NFT holders will reap the rewards alongside the investors (Film CBGB LLC), the filmmakers and actors and everyone else. We are all in this together -- if CBGB CGI is a runaway hit, and we firmly believe it will, the entire community will prosper. And those with a greater piece of it, those NFT holders, will see greater rewards!!
           </p>
           </div>
         </div>
@@ -837,7 +941,7 @@ function Home() {
               </div>
             </div>
             <div className='col-lg-3 col-md-3 col-sm-3 text-center'>
-              <img className="img-responsive arrow-offset roadmap-arrow" src="/red-arrow.png" width='80%' height='auto'/>
+              <img className="img-responsive arrow-offset roadmap-arrow animate__animated animate__shakeY animate__infinite" src="/red-arrow.png" width='80%' height='auto'/>
             </div>
             <div className='col-lg-5 col-md-5 col-sm-5'>
               <div className='second-sec align-items-center justify-content-between flex-column flex-lg-row'>
@@ -857,23 +961,23 @@ function Home() {
 
 
           <div className='row mb-5'>
-            <p className='after-sec roadmap-text text-center' style={{ color: '#6cda1f' }}><strong> *Film production Greenlight after 1000 sold soldtokens are sold </strong></p>
+            <p className='after-sec roadmap-text text-center' style={{ color: '#6cda1f' }}><strong> *Film production Greenlight after 1000 NFTs are sold </strong></p>
           </div>
           <div className='row'>
               <div className='col-lg-5 col-md-5 col-sm-5'>
                   <div className='third-sec d-flex mb-5 justify-content-between flex-column flex-lg-row'>
                     <div className='order-1'>
-                      <div className='roadmap-title'> February 2022</div>
+                      <div className='roadmap-title'> February 2023</div>
                       <div className='roadmap-text' style={{ fontFamily: 'Chelsea Market' }}><div className='d-flex'><div className='me-2'>-</div> Deadline for receiving owner names from 1000 Super Level, the 200 Super Duper Level and the 21 Super F*cking Duper Level holders to be added to the walls of our animated club.</div>
-                        <div className='d-flex'><div className='me-2'>-</div> Deadline for receiving owner photos to animate the likeness of the 200 Super Duper Level and 21 Super F*cking Duper Level holders.</div>
-                        <div className='d-flex'><div className='me-2'>-</div> Animation team will begin animating extras.</div>
+                        <div className='d-flex'><div className='me-2'>-</div> Deadline for receiving owner photos to animate the likenesses of the 200 Super Duper Level and 21 Super F*cking Duper Level holders.</div>
+                        <div className='d-flex text-nowrap'><div className='me-2'>-</div> Animation team will begin YOUR animation!</div>
                       </div>
                     </div>
                   </div>
                 </div>
 
                 <div className='col-lg-3 col-md-3 col-sm-3 text-center'>
-                  <img className="img-responsive arrow-offset roadmap-arrow" src="/red-arrow.png" width='80%' height='auto'/>
+                  <img className="img-responsive arrow-offset roadmap-arrow animate__animated animate__shakeY animate__infinite" src="/red-arrow.png" width='80%' height='auto'/>
                 </div>
                 <div className='col-lg-4 col-md-4 col-sm-4'>
                   <img className="img-responsive order-2" src='./Lisa2CBGB-rmap.jpg' width='97%' height='auto' style={{ boxShadow:'1px 1px 13px 6px #8b23c1' }} />
@@ -890,12 +994,12 @@ function Home() {
                 </div>
                 
                   <div className='col-lg-3 col-md-3 col-sm-3 text-center'>
-                  <img className="img-responsive arrow-offset roadmap-arrow" src="/red-arrow.png" width='80%' height='auto'/>
+                  <img className="img-responsive arrow-offset roadmap-arrow animate__animated animate__shakeY animate__infinite" src="/red-arrow.png" width='80%' height='auto'/>
                 </div>
 
             <div className='col-lg-4 col-md-4 col-sm-4'>
                     <div className='m-right'>
-                      <div className='roadmap-title'> June 2022</div>
+                      <div className='roadmap-title'> June 2023</div>
                       <div className='roadmap-text' style={{ fontFamily: 'Chelsea Market' }}><div className='d-flex'><div className='me-2'>-</div> Quarterly showing of finished sections of the Director's cut will begin. This access is exclusive to token holders (all passes can view).</div>
                         <div className='d-flex'><div className='me-2'>-</div> Film production will continue.</div>
                       </div>
@@ -918,7 +1022,7 @@ function Home() {
               </div>
           
             <div className='col-lg-3 col-md-3 col-sm-3 text-center'>
-              <img className="img-responsive arrow-offset roadmap-arrow rotate-190" src="/red-arrow.png" width='80%' height='auto'/>
+              <img className="img-responsive arrow-offset roadmap-arrow animate__animated animate__shakeY animate__infinite" src="/red-arrow-180.png" width='80%' height='auto'/>
             </div>  
 
 
@@ -941,7 +1045,7 @@ function Home() {
                 </div>
 
                 <div className='col-lg-4 col-md-4 col-sm-4 text-center'>
-                  <img className="img-responsive arrow-offset roadmap-arrow" src="/red-arrow.png" width='50%' height='auto'/>
+                  <img className="img-responsive arrow-offset roadmap-arrow animate__animated animate__shakeY animate__infinite" src="/red-arrow.png" width='50%' height='auto'/>
                 </div>
         
                 <div className='col-lg-4 col-md-4 col-sm-4'>
@@ -992,7 +1096,7 @@ function Home() {
                 </div>
 
                   <div className='col-lg-3 col-md-3 col-sm-3 text-center'>
-                    <img className="img-responsive arrow-offset roadmap-arrow" src="/red-arrow.png" width='80%' height='auto'/>
+                    <img className="img-responsive arrow-offset roadmap-arrow animate__animated animate__shakeY animate__infinite" src="/red-arrow.png" width='80%' height='auto'/>
                   </div>
           
                 <div className='col-lg-4 col-md-4 col-sm-4'>
@@ -1032,10 +1136,10 @@ function Home() {
         </div>
       </div>
 
-      <div className='behind'>
+      <div className='behind position-relative'>
         <div className="container-fluid">
           {/* <div className='row position-relative'>
-              <img class="img-responsive mx-auto behind-bg-img" src="/Layer590.png" style={{ width:'82%'}} />
+              <img className="img-responsive mx-auto behind-bg-img" src="/Layer590.png" style={{ width:'82%'}} />
                 <h1 className='textorange shadow-white theme-heading position-absolute font-cbgb font-weight400 fontsize4rem' style={{top:'30px'}}> Who is Behind This? </h1>
             </div> */}
             <div className='row'>
@@ -1075,8 +1179,8 @@ the original 2013 CBGB movie. He is partnering with his longtime friend, a geniu
             <div className='col-lg-6 mb-5 mb-lg-0 pt-2 px-5'>
               <img src='./Michael-&-Randy.jpg' className='img-fluid mt-1' />
               <p className='behind-text mt-2'>
-              Michael and Randy will be conducting <br/> monthly on-air AMAs <br/> <span className='textyellow d-sm-block'> exclusively for all NFT holders </span> on the film business, their experiences, entrepreneurship and everything in between. </p>
-              <p className='behind-text'> A masterclass in how to navigate the entertainment business.  </p>
+              Michael and Randy will be conducting <br/> monthly on-air AMAs <br/> <span className='textyellow d-sm-block'> exclusively for all NFT holders </span> on the film business, their experiences, <br />entrepreneurship and everything  <br />in between. </p>
+              <p className='behind-text'> A masterclass in how to navigate <br /> the entertainment business.  </p>
               <br />
               <a className='amazon' href="https://www.amazon.com/CBGB-Alan-Rickman/dp/B07Q2G9XGM/ref=sr_1_1?crid=291NR5YK2OQOY&keywords=cbgb+prime+video&qid=1649397679&s=instant-video&sprefix=Cbgb%2Cinstant-video%2C386&sr=1-1" target="_blank">
                 Watch the Original CBGB on
@@ -1110,12 +1214,15 @@ the original 2013 CBGB movie. He is partnering with his longtime friend, a geniu
             <img src='./image 42.png' />
           </a> */}
         </div>
+        <div className='animate-person hilly-mom-gif'>
+          <img src='https://cbgb.mypinata.cloud/ipfs/QmcxhPTm94unWzrjSKjXy551s4papARRCBfPUKYViibny5/Hilly%27s-Mom-for-smaller-site.gif' alt="hilly mom small gif" />
+        </div>
       </div>
 
       <div className='keep'>
-      <div class="container-fluid">
+      <div className="container-fluid">
         {/* <div className='row position-relative'>
-           <img class="img-responsive mx-auto keep-bg-img" src="/KEEP UP WITH US - Copy.png" style={{ width:'85%' }} />
+           <img className="img-responsive mx-auto keep-bg-img" src="/KEEP UP WITH US - Copy.png" style={{ width:'85%' }} />
            <h1 className='position-absolute text-white theme-heading font-cbgb font-weight400 fontsize4rem' style={{top:'30px', background: 'none'}}> Keep Up With US </h1>
           </div> */}
           <div className='row'>
@@ -1126,7 +1233,15 @@ the original 2013 CBGB movie. He is partnering with his longtime friend, a geniu
         </div>
         <br /><br /><br />
         <div className='container-fluid'>
-          <div className='row'>
+        <Slider {...settings}>
+          <img src='./Cbgb-bar-1.png' className='img-responsive left-club-img' width='100%' />
+          <img src='./Cbgb-Bar-set-2.png' className='img-responsive mid-club-img' width='100%' />
+          <img src='./Cbgb-bar-details3.png' className='img-responsive right-club-img' width='100%' />
+          <img src='./Cbgb-bar-1.png' className='img-responsive left-club-img' width='100%' />
+          <img src='./Cbgb-Bar-set-2.png' className='img-responsive mid-club-img' width='100%' />
+          <img src='./Cbgb-bar-details3.png' className='img-responsive right-club-img' width='100%' />
+        </Slider >
+          {/* <div className='row'>
             <div className='col-4'>
               <img src='./Cbgb-bar-1.png' className='img-responsive left-club-img' width='100%' />
             </div>
@@ -1136,7 +1251,7 @@ the original 2013 CBGB movie. He is partnering with his longtime friend, a geniu
             <div className='col-4'>
               <img src='./Cbgb-bar-details3.png' className='img-responsive right-club-img' width='100%' />
             </div>
-          </div>
+          </div> */}
         <br />
         <br />
           <div className='row'>
@@ -1156,7 +1271,7 @@ the original 2013 CBGB movie. He is partnering with his longtime friend, a geniu
           </div>
         </div>
       </div>
-      <div className='faq'>
+      <div className='faq position-relative'>
         <div className='row position-relative text-center faq-heading'>
             <img src="/Layer592.png" className='img-fluid m-auto faq-bg-img' style={{width:'65%'}} />
               <h1 className='textorange shadow-white theme-heading position-absolute font-cbgb font-weight400 fontsize4rem' style={{top:'14px'}}> Faq </h1>
@@ -1176,17 +1291,16 @@ the original 2013 CBGB movie. He is partnering with his longtime friend, a geniu
                 Super F*cking Duper NFTs : 10 ETH
               </Accordion>
               <Accordion title="What is CBGB and CBGB CGI?">
-                CBGB is a feature film <a href='https://www.imdb.com/title/tt1786751/'>(https://www.imdb.com/title/tt1786751/)</a> directed by Randall Miller that follows the story of Hilly Kristal's New York club from its concept as a venue for Country Bluegrass and Blues CBGB to what it ultimately became: the birthplace of underground rock 'n roll and punk. CBGB CGI is the next step in evolution in punk.Through the wizardry of Michael Davis's animation and the collaboration with director Randall Miller, token owners will have the power to transform the 
-original 2013 CBGB into a new side-by-side animated Director Cut.
+                CBGB is a feature film <a href='https://www.imdb.com/title/tt1786751/'>(https://www.imdb.com/title/tt1786751/)</a> that follows the story of Hilly Kristal's New York club from its concept as a venue for "Country, Bluegrass and Blues" to what it ultimately became: the birthplace of underground rock 'n roll and punk. CBGB CGI is the next step in evolution of punk. Through the wizardry of Michael Davis' animation and the collaboration with director Randall Miller, token owners will have the power to transform the original 2013 CBGB MOVIE into the enhanced side-by-side animated Director’s Cut. 
               </Accordion>
               <Accordion title="When will these drop?">
                 December 1, 2022              </Accordion>
               <Accordion title="How do I mint CBGB CGI?">
                 <br />
-                1) Download the <a href='https://metamask.io'>metamask.io</a> extension for the Chrome/Brave browser or app on mobile. This will allow you to make purchases with Ethereum and can be found in the extensions tab. If you are on mobile, you must use the Metamask App Browser.
+                1) Download the <a href='https://metamask.io'>metamask.io</a> extension for the Chrome/Brave browser or app on mobile. This will allow you to make purchases with Ethereum. It can be found in the extensions tab. If you are on mobile, you must use the Metamask App Browser.
                 <br />2) You can purchase Ethereum through the Metamask Wallet using Wyre or Send Ethereum from an exchange like Coinbase.
 
-                <br />3) Click on Connect at the top of the page and connect your Metamask. Once joined, you will be able to purchase the NFTs in the mint section. You will be prompted to sign your transaction. FYI, there will be a fee associated with every transaction related to gas prices.
+                <br />3) Click on Connect at the top of the page and connect your Metamask. Once joined, you will be able to purchase the NFTs in the mint section. You will be prompted to sign your transaction. FYI, transactions will incur a gas fee.
 
                 <br />4) Once you have made your purchase, your CBGB CGI NFTs will be viewable in your wallet and on OpenSea.
               </Accordion>
@@ -1248,6 +1362,9 @@ original 2013 CBGB into a new side-by-side animated Director Cut.
                 not current and is provided for your reference only. We reserve the right to modify the
                 contents of this site at any time, but we have no obligation to update any information on
                 our site. You agree that it is your responsibility to monitor changes to our site. </p>
+                <p>
+                  By providing Film CBGB LLC with your name or band name you are giving Film CBGB LLC permission to use that name and any trademark or copyright in the film in perpetuity in all forms of media known or unknown.
+                </p>
                 <p> SECTION 4 - MODIFICATIONS TO THE SERVICE AND PRICES </p>
                 <p> Prices for our NFTs are subject to change without notice. </p>
                 <p>  We reserve the right at any time to modify or discontinue the Service (or any part or
@@ -1433,14 +1550,22 @@ original 2013 CBGB into a new side-by-side animated Director Cut.
                 interact with the Site. We refer to this automatically-collected information as “Device
                 Information.”</p>
                 <p> We collect Device Information using the following technologies: </p>
-                <p>     - “Cookies” are data files that are placed on your device or computer and often
-                include an anonymous unique identifier. For more information about cookies, and how
-                to disable cookies, visit http://www.allaboutcookies.org. </p>
-               <p>     - “Log files” track actions occurring on the Site, and collect data including your IP
-                address, browser type, Internet service provider, referring/exit pages, and date/time
-                stamps.</p>
-               <p>     - “Web beacons,” “tags,” and “pixels” are electronic files used to record information
-                about how you browse the Site.</p>
+                <ul className='terms'>
+                  <li>
+                    <p>“Cookies” are data files that are placed on your device or computer and often
+                    include an anonymous unique identifier. For more information about cookies, and how
+                    to disable cookies, visit http://www.allaboutcookies.org. </p>
+                  </li>
+                  <li>
+                    <p>“Log files” track actions occurring on the Site, and collect data including your IP
+                      address, browser type, Internet service provider, referring/exit pages, and date/time
+                      stamps.</p>
+                  </li>
+                  <li>
+                    <p>“Web beacons,” “tags,” and “pixels” are electronic files used to record information
+                      about how you browse the Site.</p>
+                  </li>
+                </ul>
 
                 <p> Additionally, when you make a purchase or attempt to make a purchase through the
                 Site, we may collect certain information from you, including your name, address,
@@ -1474,10 +1599,15 @@ original 2013 CBGB into a new side-by-side animated Director Cut.
                 at http://www.networkadvertising.org/understanding-online-advertising/how-does-it-
                 work. </p>
                <p> You can opt out of targeted advertising by: </p>
-               <p>     FACEBOOK - https://www.facebook.com/settings/?tab=ads
-                    GOOGLE - https://www.google.com/settings/ads/anonymous
-                    BING - https://advertise.bingads.microsoft.com/en-
-                us/resources/policies/personalized-ads </p>
+               <div className='ps-4'>
+                <p>FACEBOOK - https://www.facebook.com/settings/?tab=ads</p>
+                <p>
+                  GOOGLE - https://www.google.com/settings/ads/anonymous
+                </p>
+                <p>
+                  BING - https://advertise.bingads.microsoft.com/en-us/resources/policies/personalized-ads 
+                </p>
+               </div>
 
                <p>Additionally, you can opt out of some of these services by visiting the Digital Advertising
                 Alliance’s opt-out portal at:  http://optout.aboutads.info/. </p>
@@ -1526,13 +1656,13 @@ original 2013 CBGB into a new side-by-side animated Director Cut.
 
               </div>
               <div>
-                © 2022 Film CBGB Productions LLC
+                © 2022 Film CBGB LLC
               </div>
             </div>
-            <div className='copyright'>
-              Powered by ORE System
-            </div>
           </footer>
+        </div>
+        <div className='animate-person genya-gif'>
+          <img src='https://cbgb.mypinata.cloud/ipfs/QmcxhPTm94unWzrjSKjXy551s4papARRCBfPUKYViibny5/Genya-smaller-for-site.gif' alt="genya gif" />
         </div>
       </div>
     </div>
