@@ -917,7 +917,7 @@ function Home() {
         <br />
         <div className='row'>
           <div className='col-12'>
-          <p>
+          <p className='px-5'>
             Rock 'n' roll musicians and the filmmakers that follow them have been telling stories infused with the music they love since that first rock 'n' roller strung an electric guitar and cranked up the volume. And right beside them some crazy film student decided to capture it on video. The birth of the Music Video. Those songs and those stories, though radical and revolutionary at first, shaped our culture today. At CBGB CGI we believe that storytellers and artists deserve an outlet where they can be valued and supported without having to bow to the machine of big media. So we’re tilting the model on its head and testing a new architecture using NFTs that can connect storytellers directly with their audience and essentially decentralize content production. But we are going even further: we are designing this so that our NFT holders will reap the rewards alongside the investors (Film CBGB LLC), the filmmakers and actors and everyone else. We are all in this together -- if CBGB CGI is a runaway hit, and we firmly believe it will, the entire community will prosper. And those with a greater piece of it, those NFT holders, will see greater rewards!!
           </p>
           </div>
