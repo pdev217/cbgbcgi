@@ -146,7 +146,7 @@ const fokingConf = [
         category: "THE RAMONES",
         img: "https://cbgb.mypinata.cloud/ipfs/QmazprkjugkMwoYC3Q1PY5oQ8ZSQZZoPCFZb7ovWzHejKB/The Ramones Dance(smaller).gif",
         title: "The Ramones",
-        smallTitle: "played by Joel David Moore",
+        smallTitle: "played by Joel David Moore et al",
         desc: '"The First True Punk Rock Group"',
     },
     {

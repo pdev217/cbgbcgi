@@ -94,6 +94,12 @@ function Home() {
   },[])
 
   const mint = async (lev, cat="") => {
+    if(!account) {
+      toast.warn("Please connect to your metamask")
+      window.scrollTo(0, 0)
+      return
+    }
+
     let mintPrice;
     const balance = await getBalance();
     setMintStatus(true)
@@ -496,7 +502,7 @@ function Home() {
           <div className='col-lg-12'>
             <div className='position-relative'>
               <div className='cheetah-about animate-person'>
-                <img src='https://cbgb.mypinata.cloud/ipfs/QmcxhPTm94unWzrjSKjXy551s4papARRCBfPUKYViibny5/Cheetah-dances-smaller.gif' />
+                <img src='https://cbgb.mypinata.cloud/ipfs/QmVcZPjs2zqUStaNWSDue3DPQpibGpJLt5EZrHXqum3k6q/Cheetah-GIF-HiRes.gif' />
               </div>
               <p className='about-first'>
                 <span className=''>
@@ -504,7 +510,7 @@ function Home() {
                 </span> was the birthplace of punk rock - The legendary club that launched the careers of some of the most influential rockers of all time: Blondie, The Ramones, Patti Smith, Iggy Pop, Talking Heads, and many more...
               </p>
               <div className='lisa-about animate-person'>
-                <img src='https://cbgb.mypinata.cloud/ipfs/QmcxhPTm94unWzrjSKjXy551s4papARRCBfPUKYViibny5/Lisa-smaller-for-site.gif' />
+                <img src='https://cbgb.mypinata.cloud/ipfs/QmVcZPjs2zqUStaNWSDue3DPQpibGpJLt5EZrHXqum3k6q/Lisa-GIF-HiRes.gif' />
               </div>
             </div>
           </div>
@@ -517,7 +523,7 @@ function Home() {
             <img src='/MT_CBGB_08.png' className='img-responsive shadow-img' width='100%' />
           </div>
           <div className='col-md-4 col-sm-8 mt-auto mb-auto'>
-            <p className='about-second fs-4'>
+            <p className='about-second'>
               We are bringing you a side-by-side Director’s Cut of the <span className='cbgb-txt'>2013 CBGB movie</span>. Viewers can enjoy the great soundtrack with or without animation - 
               or with AND without!  Up to you!
               <br />
@@ -560,7 +566,7 @@ function Home() {
         <div className='position-relative'>
           <div className='imagine imagine-text col-md-6'> Imagine watching Alan Rickman play CBGB Club Owner Hilly Kristal, AND animated Alan Rickman playing CBGB Club Owner Hilly Kristal. Side-by-side.</div>
           <div className='animate-person hilly-gif'>
-            <img src='https://cbgb.mypinata.cloud/ipfs/QmcxhPTm94unWzrjSKjXy551s4papARRCBfPUKYViibny5/Hilly-smaller-for-site.gif' />
+            <img src='https://cbgb.mypinata.cloud/ipfs/QmVcZPjs2zqUStaNWSDue3DPQpibGpJLt5EZrHXqum3k6q/Hilly-GIF-HiRes.gif' />
           </div>
         </div>
       </div>
@@ -740,7 +746,7 @@ function Home() {
           </div>
           <div className='position-relative'>
             <div className='animate-person lou-gif'>
-              <img src='https://cbgb.mypinata.cloud/ipfs/QmcxhPTm94unWzrjSKjXy551s4papARRCBfPUKYViibny5/Lou-Reed-smaller-for-site.gif' alt="lou reed gif" />
+              <img src='https://cbgb.mypinata.cloud/ipfs/QmVcZPjs2zqUStaNWSDue3DPQpibGpJLt5EZrHXqum3k6q/LouReed-GIF-HiRes.gif' alt="lou reed gif" />
             </div>
             <p className='text-white bonus-para mt-4'>
               For the first <span className='thousand'>1000</span> who purchase tokens we will add <span className='thousand'>YOUR NAME</span> to the illustrious storied walls of our animated Club.
@@ -791,7 +797,7 @@ function Home() {
               </div>
             </div>
           </div>
-          <p className='apear mt-2'>And appear as an extra in the new side-by-side animated version of <span> CBGB </span></p>
+          <p className='apear mt-2'>And appear as an "animated" extra in the new side-by-side animated version of <span> CBGB </span></p>
           <button 
           className='mint mint-sfd text-red bg-yellow' 
           disabled={mintStatus}
@@ -1160,9 +1166,11 @@ the original 2013 CBGB movie. He is partnering with his longtime friend, a geniu
         <div className='container'>
           <div className='row'>
             <div className='col-lg-3 px-0 mb-5 mb-lg-0'>
-              <img src='./Randy Miller (Director) and Alan Rickman on Nobel Son.png' className='img-fluid' />
+              <div className='img-effect-s img-effect'>
+                <img src='./Randy Miller (Director) and Alan Rickman on Nobel Son.png' className='img-fluid' />
+              </div>
               <div className='behind-headline'>
-              <img src='./RANDALL MILLER.png' />
+                <img src='./RANDALL MILLER.png' />
               </div>
               <p className='behind-text'>
                 Writer/Director Randall Miller is the director of CBGB, Bottle Shock, Coffee Wars, Nobel Son, Houseguest, Class Act and many more!
@@ -1177,8 +1185,10 @@ the original 2013 CBGB movie. He is partnering with his longtime friend, a geniu
             </div>
 
             <div className='col-lg-6 mb-5 mb-lg-0 pt-2 px-5'>
-              <img src='./Michael-&-Randy.jpg' className='img-fluid mt-1' />
-              <p className='behind-text mt-2'>
+              <div className='img-effect'>
+                <img src='./Michael-&-Randy.jpg' className='img-fluid mt-1' />
+              </div>
+              <p className='behind-text mt-4'>
               Michael and Randy will be conducting <br/> monthly on-air AMAs <br/> <span className='textyellow d-sm-block'> exclusively for all NFT holders </span> on the film business, their experiences, <br />entrepreneurship and everything  <br />in between. </p>
               <p className='behind-text'> A masterclass in how to navigate <br /> the entertainment business.  </p>
               <br />
@@ -1189,15 +1199,17 @@ the original 2013 CBGB movie. He is partnering with his longtime friend, a geniu
             </div>
 
             <div className='col-lg-3 px-0'>
-              <img src='./Screen Shot 2022-02-16 at 5.58.png' className='img-fluid' /><br />
+              <div className='img-effect-s img-effect'>
+                <img src='./Screen Shot 2022-02-16 at 5.58.png' className='img-fluid' /><br />
+              </div>
               <div className='behind-headline'>
-              <img src='./Michael Davis.png' />
+                <img src='./Michael Davis.png' />
               </div>
               <p className='behind-text'>
-                Writer/Director Michael Davis is the director of Shoot 'Em Up, 100 Girls, 8 Days a Week!
+                Writer/Director Michael Davis <br /> is the director of <br /> Shoot 'Em Up, <br />100 Girls, 8 Days a Week!
                 <br />Check him out here:
               </p>
-              <br /><br />
+              <br />
               <a className='imdb' href='https://www.imdb.com/name/nm0205157/' target="_blank">
 
                 <img src='./IMDB_Logo_2016.svg.png' />
@@ -1215,7 +1227,7 @@ the original 2013 CBGB movie. He is partnering with his longtime friend, a geniu
           </a> */}
         </div>
         <div className='animate-person hilly-mom-gif'>
-          <img src='https://cbgb.mypinata.cloud/ipfs/QmcxhPTm94unWzrjSKjXy551s4papARRCBfPUKYViibny5/Hilly%27s-Mom-for-smaller-site.gif' alt="hilly mom small gif" />
+          <img src='https://cbgb.mypinata.cloud/ipfs/QmVcZPjs2zqUStaNWSDue3DPQpibGpJLt5EZrHXqum3k6q/Mom-GIF-HiRes.gif' alt="hilly mom small gif" />
         </div>
       </div>
 
@@ -1284,7 +1296,7 @@ the original 2013 CBGB movie. He is partnering with his longtime friend, a geniu
                 Yes, you can find our verified smartcontract <a target="_blank" href='https://etherscan.io/address/0x7571F1F750dba62a905D8eA327E5DFCaaCb6ddA3'>here</a>.
               </Accordion>
               <Accordion title="What is the minting price?">
-               Super Level NFTs : 0.5 ETH
+               Super Level NFTs : 0.1 ETH
                 <br />
                 Super Duper Level NFTs : 5 ETH
                 <br />
@@ -1470,7 +1482,7 @@ the original 2013 CBGB movie. He is partnering with his longtime friend, a geniu
                 warranties, or conditions of any kind, either express or implied, including all implied
                 warranties or conditions of merchantability, merchantable quality, fitness for a particular
                 purpose, durability, title, and non-infringement. </p>
-               <p> In no case shall Film CBGB, LLC, CBGB CGI, Unclaimed Freight Productions Inc., or
+               <p> In no case shall Film CBGB, LLC, CBGB CGI, Unclaimed Freight Productions Inc., Underdawg Entertainment or
                 their directors, officers, employees, affiliates, agents, contractors, interns, suppliers,
                 service providers, or licensors be liable for any injury, loss, or claim, or any direct,
                 indirect, incidental, punitive, special, or consequential damages of any kind, including
@@ -1662,7 +1674,7 @@ the original 2013 CBGB movie. He is partnering with his longtime friend, a geniu
           </footer>
         </div>
         <div className='animate-person genya-gif'>
-          <img src='https://cbgb.mypinata.cloud/ipfs/QmcxhPTm94unWzrjSKjXy551s4papARRCBfPUKYViibny5/Genya-smaller-for-site.gif' alt="genya gif" />
+          <img src='https://cbgb.mypinata.cloud/ipfs/QmVcZPjs2zqUStaNWSDue3DPQpibGpJLt5EZrHXqum3k6q/Genya-GIF-Hi-Res.gif' alt="genya gif" />
         </div>
       </div>
     </div>

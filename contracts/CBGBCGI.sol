@@ -9,26 +9,19 @@ import "hardhat/console.sol";
 
 contract CBGBCGI is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
     using SafeMath for uint256;
-     uint public drop_unlock_time = 1667260800; //November 1st 2022
-    string public unlock_preview = "https://cbgb.mypinata.cloud/ipfs/QmXVss1BheMNtWhvBQqV613uu9nh67fcFh9eMFF9avadfx";
-    uint8[15] public walletPercents = [59,10,10,5,2,2,2,2,2,2,2,2,2,2,2];
-    address[15] public wallets = [
-        0xf74a589d778f6D1166DcA66d0B17263403227E55,
-        0x653229a1c558b87cba440bb82d296Bd1E572C23D,
-        0xfe78bf9d611c6aAB734A69810E79e8220278c897,
-        0xFFE7aFE2b1Fa96045e91e566a903a230CbB99f70,
-        0x1B86c2909C765eC3Be7Ad953E3Bd6f3c748EE07B,
-        0xf74a589d778f6D1166DcA66d0B17263403227E55,
-        0xf74a589d778f6D1166DcA66d0B17263403227E55,
-        0xf74a589d778f6D1166DcA66d0B17263403227E55,
-        0xf74a589d778f6D1166DcA66d0B17263403227E55,
-        0xf74a589d778f6D1166DcA66d0B17263403227E55,
-        0xf74a589d778f6D1166DcA66d0B17263403227E55,
-        0xf74a589d778f6D1166DcA66d0B17263403227E55,
-        0xf74a589d778f6D1166DcA66d0B17263403227E55,
-        0xf74a589d778f6D1166DcA66d0B17263403227E55,
-        0xf74a589d778f6D1166DcA66d0B17263403227E55
+    uint public drop_unlock_time = 1669852800; //December 1st 2022
+    string public unlock_preview = "https://cbgb.mypinata.cloud/ipfs/QmQCSeHZQAYQj1sCDz3jieKHe4xF3roZCKfmVxKbWUbM4c";
+    uint256[7] public walletPercents = [58, 15, 15, 5, 4, 2, 1]; 
+    address[7] public wallets = [
+        0x3d7fEc357428418966F9d0824B9Af2e179029164, //58%
+        0x653229a1c558b87cba440bb82d296Bd1E572C23D, //15%
+        0xfe78bf9d611c6aAB734A69810E79e8220278c897, //15%
+        0xFFE7aFE2b1Fa96045e91e566a903a230CbB99f70, //5%
+        0x1B86c2909C765eC3Be7Ad953E3Bd6f3c748EE07B , //4%
+        0xfCcC54E9aeB74F9bE19A6b6bF0E048A2760F628A, //2%
+        0x43854dADf84D1918417d28708180Ef7414F4c359 //1%
     ];
+
 
     function _beforeTokenTransfer(address from, address to, uint256 tokenId)
         internal
@@ -45,11 +38,11 @@ contract CBGBCGI is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
         override(ERC721, ERC721URIStorage)
         returns (string memory)
     {
-        // if(block.timestamp < 1667260800) {      //November 1st 2022
-        //     return "https://cbgb.mypinata.cloud/ipfs/QmXVss1BheMNtWhvBQqV613uu9nh67fcFh9eMFF9avadfx";
-        // }else {
-        // }
-         return super.tokenURI(tokenId);
+        if(block.timestamp < drop_unlock_time) {  
+            return unlock_preview;
+        }else {
+            return super.tokenURI(tokenId);
+        }
     }
     function supportsInterface(bytes4 interfaceId)
         public
@@ -78,7 +71,7 @@ contract CBGBCGI is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
     }
 
     function _sendEther() public payable {
-        for(uint i = 0; i < 15; i++) {
+        for(uint i = 0; i < 7; i++) {
             (bool sent,) = wallets[i].call{value: msg.value * walletPercents[i]/100}("");
             console.log(sent);
         }

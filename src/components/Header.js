@@ -2,12 +2,19 @@ import '../static/Header.css';
 import { useMoralis, useChain } from "react-moralis";
 import React, { useEffect } from 'react';
 function Header() {
-    const { isAuthenticated, user, authenticate, logout } = useMoralis();
-    const { chainId, account } = useChain();
+    const { isAuthenticated, user, account, authenticate, logout } = useMoralis();
+    const { switchNetwork, chainId, chain } = useChain()
 
     useEffect(() => {
+        if(account) {
+            if(chainId != process.env.REACT_APP_CHAIN_ID) {
+                switchNetwork(process.env.REACT_APP_CHAIN_ID)
+            }
+        }
+    }, [account])
 
-    }, [isAuthenticated, account, chainId])
+    console.log("isAuthenticate", isAuthenticated)
+    console.log("account", account)
 
     return (
         <div className='header'>
@@ -41,12 +48,7 @@ function Header() {
                     <div className="col-lg-1  col-md-4 col-sm-4 col-4 left-links txt">
                         {/* {isAuthenticated && <a className='airdrop'>AIRDROP </a>}
                         {isAuthenticated && <a className='whitelist'>WHITELIST </a>} */}
-                        {!isAuthenticated && <a className='right-links txt pt-2' href="#" onClick={
-                          async () => {
-                            await authenticate({ provider: "injected" });
-                            window.localStorage.setItem("connectorId", "injected");
-                          }
-                        }>CONNECT WALLET </a>}
+                        {!isAuthenticated && <a className='right-links txt pt-2' href="#" onClick={authenticate}>CONNECT WALLET </a>}
                         {isAuthenticated && <a className='connect right-links txt pt-2' href="#" onClick={() => logout()}>DISCONNECT </a>}
                     </div>
 

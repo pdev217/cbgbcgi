@@ -84,13 +84,12 @@ body {
     font-family: "Chelsea Market";
     font-style: normal;
     font-weight: 400;
-    font-size: 28px;
+    font-size: 25px;
     line-height: 36px;
     text-align: center;
     color: white;
     margin: auto;
     margin-bottom: 37px;
-    max-width: 482px;
 }
 .third-paragraph {
     font-family: "Chelsea Market";
@@ -252,8 +251,8 @@ body {
     }
 
     .hilly-gif {
-        right: 10vw;
-        bottom: -133px;
+        right: 13vw;
+        bottom: -145px;
     }
 
     .hilly-gif img {
@@ -261,7 +260,7 @@ body {
     }
 
     .lou-gif {
-        bottom: -122px;
+        bottom: -185px;
         left: 5vw;
     }
 
@@ -1042,8 +1041,8 @@ body {
     font-family: "Chelsea Market";
     font-style: normal;
     font-weight: 400;
-    font-size: 18px;
-    line-height: 27px;
+    font-size: 17px;
+    line-height: 24px;
     text-align: center;
     color: #ffffff;
     margin: auto;
@@ -1855,10 +1854,22 @@ body {  overflow-x: hidden; }
 }
 .shadow-img { box-shadow: 1px 0px 10px 2px #fff; }
 .about-second {
-    font-size: 1.2vmax !important;
     line-height: 26px !important;
 }
 .max-width100{ max-width: 100% !important;}
+
+.img-effect-s {
+    max-width: 250px;
+    margin: auto;
+}
+
+.img-effect:hover img {
+    transform: scale(1.2);
+}
+
+.img-effect img {
+    transition: all 0.4s ease;
+}
 
 
 
