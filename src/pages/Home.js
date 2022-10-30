@@ -542,8 +542,9 @@ function Home() {
           </div>
         </div>
       </div>
-        <br /><br /><br />
-        <div className="container-fluid">
+      <br />
+      <br />
+        <div className="container-fluid mt-md-5">
             <div className='row'>
               <div className='col-lg-8 m-auto'>
                 <img src='/heading-cbgb2.png' className='w-100' />
@@ -729,8 +730,8 @@ function Home() {
         <br />
 
         </div>
-        <br /><br /><br />
-        <div className='purple' id='bonus'>
+        <br />
+        <div className='purple mt-md-5' id='bonus'>
           <div className="container-fluid">
                <div className='row position-relative'>
                   <img className="img-responsive bonus-bg-img mx-auto lg-img-3" src="/Layer590.png" style={{ width:'1100px' }} />
@@ -1268,8 +1269,7 @@ the original 2013 CBGB movie. He is partnering with his longtime friend, a geniu
         <br />
           <div className='row'>
             <div className='col-12'>
-              <br /><br />
-              <p className='text'>
+              <p className='text mt-md-5'>
                 We will hold monthly online meetings connecting our NFT partners with the artists and animators who are reimagining the original live-action film into a wild new side-by-side animation/live action Director's Cut. 
                 And when the film is complete, our token holders will get first premiere access to the film before anyone else  has seen it. Our Intention is to shake things up in pure punk fashion. Enough waiting around for some big studio 
                 with their bureaucratic pencil pushers to deem us worthy. We are <span className='textyellow'>CBGB CGI</span> and we are ready to rock!
@@ -1293,7 +1293,7 @@ the original 2013 CBGB movie. He is partnering with his longtime friend, a geniu
           <div className='row'>
             <div className='col-12'>
               <Accordion title="Where can we find the smart contract?">
-                Yes, you can find our verified smartcontract <a target="_blank" href='https://etherscan.io/address/0x7571F1F750dba62a905D8eA327E5DFCaaCb6ddA3'>here</a>.
+                Yes, you can find our verified smartcontract <a target="_blank" href='https://etherscan.io/address/0x602a71de6194e6b20e1ff5f452cd9e239c241961'>here</a>.
               </Accordion>
               <Accordion title="What is the minting price?">
                Super Level NFTs : 0.1 ETH

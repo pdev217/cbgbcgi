@@ -182,6 +182,7 @@ body {
     padding: 55px 0;
     background-size: cover;
 }
+
 /*.about .headline {
     background: url("../assets/Layer 590 1.png") center center/auto 80% no-repeat !important;
     background-position: center center;
@@ -2155,4 +2156,46 @@ iframe {
     height: 10px;
     left: -20px;
     top: 7px;
+}
+
+@media (max-width: 400px) {
+    .about {
+        padding: 0;
+    }
+
+    .mt-super {
+        margin-top: 1.9rem;
+    }
+
+    .mt-duper {
+        margin-top: 1.8rem;
+    }
+
+    .animated-headline {
+        font-size: 18px;
+    }
+
+    .animated-text {
+        font-size: 13px;
+    }
+
+    .our-manifesto {
+        padding-top: 0;
+    }
+
+    .super-fucking {
+        padding: 0 10px;
+    }
+
+    .our-manifesto p {
+        font-size: 14px;
+    }
+
+    .keep {
+        padding-top: 0;
+    }
+
+    .roadmap {
+        padding: 0;
+    }
 }
