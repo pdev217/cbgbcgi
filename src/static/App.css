@@ -2219,6 +2219,13 @@ iframe {
         width: 85%;
     }
 }
+@media(max-width: 500px) {
+    .ban {
+        position: absolute;
+        top: -5rem;
+        left: 0;
+    }
+}
 
 .ban.roadmap {
     width: 100%;

@@ -471,7 +471,7 @@ function Home() {
         <div className='intro-innter'>
           <Header />
           <div className='container position-relative'>
-            <CountDown targetDate="December 1, 2022" targetTime="00:00:00" />
+            <CountDown targetDate="Feburuary 15, 2023" targetTime="00:00:00" />
             <div className='container'>
               <div className='row'>
                   <p className="first-paragraph mb-3 mt-4"><span>W</span>elcome to a revolution in filmmaking!</p>
