@@ -2355,9 +2355,9 @@
     "mcl-wasm" "^0.7.1"
     "rustbn.js" "~0.2.0"
 
-"@nomicfoundation/solidity-analyzer-win32-x64-msvc@0.1.0":
-  "integrity" "sha512-xCuybjY0sLJQnJhupiFAXaek2EqF0AP0eBjgzaalPXSNvCEN6ZYHvUzdA50ENDVeSYFXcUsYf3+FsD3XKaeptA=="
-  "resolved" "https://registry.npmjs.org/@nomicfoundation/solidity-analyzer-win32-x64-msvc/-/solidity-analyzer-win32-x64-msvc-0.1.0.tgz"
+"@nomicfoundation/solidity-analyzer-win32-ia32-msvc@0.1.0":
+  "integrity" "sha512-m7w3xf+hnE774YRXu+2mGV7RiF3QJtUoiYU61FascCkQhX3QMQavh7saH/vzb2jN5D24nT/jwvaHYX/MAM9zUw=="
+  "resolved" "https://registry.npmjs.org/@nomicfoundation/solidity-analyzer-win32-ia32-msvc/-/solidity-analyzer-win32-ia32-msvc-0.1.0.tgz"
   "version" "0.1.0"
 
 "@nomicfoundation/solidity-analyzer@^0.1.0":

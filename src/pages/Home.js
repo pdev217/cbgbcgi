@@ -470,10 +470,15 @@ function Home() {
       <div className='intro'>
         <div className='intro-innter'>
           <Header />
-          <CountDown targetDate="December 1, 2022" targetTime="00:00:00" />
-          <div className='container'>
-            <div className='row'>
-                <p className="first-paragraph mb-3 mt-4"><span>W</span>elcome to a revolution in filmmaking!</p>
+          <div className='container position-relative'>
+            <CountDown targetDate="December 1, 2022" targetTime="00:00:00" />
+            <div className='container'>
+              <div className='row'>
+                  <p className="first-paragraph mb-3 mt-4"><span>W</span>elcome to a revolution in filmmaking!</p>
+              </div>
+            </div>
+            <div className='ban'>
+              <img src='/ban.png' alt="ban" />
             </div>
           </div>
           <div className="container-fluid video-container">
@@ -924,7 +929,7 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className='roadmap' id="roadmap">
+      <div className='roadmap position-relative' id="roadmap">
         <div className="container">
           {/* <div className='row position-relative text-center roadmap-heading'>
             <img className="img-responsive mx-auto roadmap-bg-img" src="/Layer590.png" style={{ width:'70%' }}/>
@@ -1141,6 +1146,9 @@ function Home() {
 
           </div>
         </div>
+        <div className='ban roadmap'>
+          <img src="/ban.png" alt='ban' />
+        </div>
       </div>
 
       <div className='behind position-relative'>
@@ -1296,11 +1304,11 @@ the original 2013 CBGB movie. He is partnering with his longtime friend, a geniu
                 Yes, you can find our verified smartcontract <a target="_blank" href='https://etherscan.io/address/0x602a71de6194e6b20e1ff5f452cd9e239c241961'>here</a>.
               </Accordion>
               <Accordion title="What is the minting price?">
-               Super Level NFTs : 0.1 ETH
+                Super Level NFTs :<span className='text-comming'> Comming soon</span>
                 <br />
-                Super Duper Level NFTs : 5 ETH
+                Super Duper Level NFTs : <span className='text-comming'> Comming soon</span>
                 <br />
-                Super F*cking Duper NFTs : 10 ETH
+                Super F*cking Duper NFTs : <span className='text-comming'> Comming soon</span>
               </Accordion>
               <Accordion title="What is CBGB and CBGB CGI?">
                 CBGB is a feature film <a href='https://www.imdb.com/title/tt1786751/'>(https://www.imdb.com/title/tt1786751/)</a> that follows the story of Hilly Kristal's New York club from its concept as a venue for "Country, Bluegrass and Blues" to what it ultimately became: the birthplace of underground rock 'n roll and punk. CBGB CGI is the next step in evolution of punk. Through the wizardry of Michael Davis' animation and the collaboration with director Randall Miller, token owners will have the power to transform the original 2013 CBGB MOVIE into the enhanced side-by-side animated Director’s Cut. 

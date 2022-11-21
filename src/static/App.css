@@ -2199,3 +2199,30 @@ iframe {
         padding: 0;
     }
 }
+
+.text-comming {
+    color: #fd1900;
+}
+
+.ban {
+    position: absolute;
+    top: -8rem;
+    left: 0;
+}
+
+.ban img {
+    width: 100%;
+}
+
+@media(min-width: 500px) {
+    .ban img {
+        width: 55%;
+    }
+}
+
+.ban.roadmap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    top: 12%;
+}
