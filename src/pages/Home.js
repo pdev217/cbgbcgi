@@ -1304,17 +1304,18 @@ the original 2013 CBGB movie. He is partnering with his longtime friend, a geniu
                 Yes, you can find our verified smartcontract <a target="_blank" href='https://etherscan.io/address/0x602a71de6194e6b20e1ff5f452cd9e239c241961'>here</a>.
               </Accordion>
               <Accordion title="What is the minting price?">
-                Super Level NFTs :<span className='text-comming'> Comming soon</span>
+                Super Level NFTs :<span className='text-comming'> Coming soon</span>
                 <br />
-                Super Duper Level NFTs : <span className='text-comming'> Comming soon</span>
+                Super Duper Level NFTs : <span className='text-comming'> Coming soon</span>
                 <br />
-                Super F*cking Duper NFTs : <span className='text-comming'> Comming soon</span>
+                Super F*cking Duper NFTs : <span className='text-comming'> Coming soon</span>
               </Accordion>
               <Accordion title="What is CBGB and CBGB CGI?">
                 CBGB is a feature film <a href='https://www.imdb.com/title/tt1786751/'>(https://www.imdb.com/title/tt1786751/)</a> that follows the story of Hilly Kristal's New York club from its concept as a venue for "Country, Bluegrass and Blues" to what it ultimately became: the birthplace of underground rock 'n roll and punk. CBGB CGI is the next step in evolution of punk. Through the wizardry of Michael Davis' animation and the collaboration with director Randall Miller, token owners will have the power to transform the original 2013 CBGB MOVIE into the enhanced side-by-side animated Director’s Cut. 
               </Accordion>
               <Accordion title="When will these drop?">
-                December 1, 2022              </Accordion>
+                <span className='text-comming'> Coming soon</span>
+              </Accordion>
               <Accordion title="How do I mint CBGB CGI?">
                 <br />
                 1) Download the <a href='https://metamask.io'>metamask.io</a> extension for the Chrome/Brave browser or app on mobile. This will allow you to make purchases with Ethereum. It can be found in the extensions tab. If you are on mobile, you must use the Metamask App Browser.
